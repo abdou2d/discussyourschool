@@ -1,0 +1,53 @@
+<%= form_for @student do |f| %>
+
+    <div class="row">
+        <div class="input-field col s12">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "validate" %>
+            <%= error_field @student, :name %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s6">
+            <%= f.label :school_name %>
+            <%= f.text_field :school_name, class: "validate" %>
+            <%= error_field @student, :school_name %>
+        </div>
+        <div class="input-field col s6">
+            <%= f.select :grade, options_for_select(grade_options), {prompt: 'Série (Opcional)'}, class: "validate" %>
+            <%= error_field @student, :grade %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s6">
+            <%= f.label :email %>
+            <%= f.text_field :email, class: "validate" %>
+            <%= error_field @student, :email %>
+        </div>
+        <div class="input-field col s6">
+            <%= f.label :birthday %>
+            <%= f.text_field :birthday, class: "validate birthday", placeholder: "dd/mm/aaaa" %>
+            <%= error_field @student, :birthday %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s6">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: "validate" %>
+            <%= error_field @student, :password %>
+        </div>
+        <div class="input-field col s6">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, class: "validate" %>
+            <%= error_field @student, :password_confirmation %>
+        </div>
+    </div>
+
+    <div class="row">
+        <%= f.submit "Cadastrar-se!", class: "btn btn-large  blue darken-1" %>
+    </div>
+
+<% end %>
