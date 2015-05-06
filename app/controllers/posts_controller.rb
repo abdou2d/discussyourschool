@@ -6,7 +6,11 @@ class PostsController < ApplicationController
 	before_action :set_student_post, only: [:edit, :update]
 
 	def index
-		@posts = Post.where(school_name: current_student.school_name).all.order(:cached_weighted_score => :desc)
+		if student_signed_in?
+			@posts = Post.where(school_name: current_student.school_name).all.order(:cached_weighted_score => :desc)
+		elsif school_signed_in?
+			@posts = Post.where(school_name: current_school.name).all.order(:cached_weighted_score => :desc)
+		end
 	end
 
 	def show
