@@ -1,21 +1,20 @@
 <%= form_for @post do |f| %>
 
 	<div class="row">
-		<%= f.label :title %>
-		<%= f.text_field :title, :autofocus => true %>
-		<%= error_field @post, :title %>
+		<div class="input-field col s12">
+			<%= f.label :title %>
+			<%= f.text_field :title, :autofocus => true, class: "validate" %>
+			<%= error_field @post, :title %>
+		</div>
 	</div>
 
 	<div class="row">
-		<%= f.label :content %>
-		<%= f.text_area :content, :autofocus => true %>
-		<%= error_field @post, :content %>
-	</div>
-
-	<div class="row">
-		<%= f.label :school_name %>
-		<%= f.autocomplete_field :school_name, autocomplete_school_name_posts_path, class: "validate" %>
-        <%= error_field @post, :school_name %>
+		<div class="input-field col s12">
+			<i class="mdi-editor-mode-edit prefix"></i>
+			<%= f.label :content %>
+			<%= f.text_area :content, class: "materialize-textarea" %>
+			<%= error_field @post, :content %>
+		</div>
 	</div>
 
 	<br>
@@ -25,6 +24,6 @@
 		<%= f.label "Caso prefira, inicie a discussão anônimamente" %>
 	</div>
 
-	<div class="row"><%= f.submit %></div>
+	<div class="row"><%= f.submit "Postar problema", class: "btn btn-large blue darken-1" %></div>
 
 <% end %>

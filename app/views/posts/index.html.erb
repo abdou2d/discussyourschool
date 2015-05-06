@@ -1,16 +1,9 @@
 <% if @posts.count == 0 %>
-	<h2>SEm posts até o momento!</h2>
+	<h2 style="text-align: center;">Sem discussões de problemas e soluções até o momento</h2>
 <% else %>
 	<% @posts.each do |post| %>
-		<p>
-			<%= post.title %>
-		</p>
 
-		<p>
-			<b><%= post.content %></b>
-		</p>
-
-		<hr>
+		
 
 	<% end %>
 <% end %>

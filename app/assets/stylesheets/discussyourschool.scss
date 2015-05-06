@@ -186,6 +186,56 @@
     }
 }
 
+.criar-problema {
+    text-align: center;
+
+    h2 {
+        font-size: 2.8em;
+    }
+
+    .formulario {
+        label {
+            font-size: 1.2em;
+        }
+
+        input[type=text],
+        input[type=number] {
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        textarea {
+            font-size: 1.2em;
+            height: 100px;
+        }
+    }
+}
+
+.editar-problema {
+    text-align: center;
+
+    h2 {
+        font-size: 2.8em;
+    }
+
+    .formulario {
+        label {
+            font-size: 1.2em;
+        }
+
+        input[type=text],
+        input[type=number] {
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        textarea {
+            font-size: 1.2em;
+            height: 100px;
+        }
+    }
+}
+
 .error {
     color: #d50000;
 }

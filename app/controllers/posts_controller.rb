@@ -10,7 +10,6 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		
 	end
 
 	def new
@@ -19,6 +18,9 @@ class PostsController < ApplicationController
 
 	def create
 		@post = current_student.posts.build(post_params)
+
+		@post.school_name = current_student.school_name
+
 		if @post.save
 			redirect_to @post, notice: "Post criado com sucesso"
 		else
@@ -27,7 +29,7 @@ class PostsController < ApplicationController
 	end
 
 	def edit
-		
+
 	end
 
 	def update
@@ -43,7 +45,7 @@ class PostsController < ApplicationController
 		redirect_to posts_path
 	end
 
-	
+
 
 	private
 
