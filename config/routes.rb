@@ -6,6 +6,10 @@ Rails.application.routes.draw do
       get :autocomplete_school_name, :on => :collection
   end
 
+  resources :posts do
+      get :autocomplete_school_name, :on => :collection
+  end
+
   resource :confirmation_school, only: [:show]
   resource :confirmation_student, only: [:show]
 

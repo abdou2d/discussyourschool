@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
     autocomplete :school, :name, :full => true
 
-    before_action :canc_change, only: [:edit, :update]
+    before_action :can_change, only: [:edit, :update]
     before_action :require_no_authentication_student, only: [:new, :create]
 
     def show
@@ -31,7 +31,7 @@ class StudentsController < ApplicationController
         @student = Student.find(params[:id])
 
         if @student.update(student_params)
-            redirect_to @school, notice: 'Perfil editado com sucesso!'
+            redirect_to @student, notice: 'Perfil editado com sucesso!'
         else
             render action: :edit
         end
@@ -43,7 +43,7 @@ class StudentsController < ApplicationController
         @student ||= Student.find(params[:id])
     end
 
-    def can_change?
+    def can_change
         unless student_signed_in? && current_student = student
             redirect_to student_path(params[:id])
         end

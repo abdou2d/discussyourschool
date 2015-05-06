@@ -5,11 +5,12 @@
         <h3>do <%= @student.school_name %></h3>
     </div>
 
-    <div class="options">
-        <%= link_to "Editar perfil", edit_student_path(@student), class: "waves-effect waves-light btn yellow darken-3" %>
-        <a class="waves-effect waves-light btn red">Excluir perfil</a>
-    </div>
-
+    <% if student_signed_in? && current_student == @student  %>
+        <div class="options">
+            <%= link_to "Editar perfil", edit_student_path(@student), class: "waves-effect waves-light btn yellow darken-3" %>
+        </div>
+    <% end %>
+    
     <div class="row">
         <div class="col s6">
             <div class="posts">
