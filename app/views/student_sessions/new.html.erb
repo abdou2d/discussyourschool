@@ -1,0 +1,33 @@
+<div class="login-aluno container">
+    <h2>Login do aluno</h2>
+
+    <% if @student_session.errors.has_key? :base %>
+        <div class="error">
+            <%= @student_session.errors[:base].join(', ') %>
+        </div>
+    <% end %>
+
+    <div class="formulario">
+        <%= form_for @student_session do |f| %>
+            <div class="row">
+                <div class="input-field col s12">
+                    <%= f.label :email %>
+                    <%= f.text_field :email %>
+                    <%= error_field @student_session, :email %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <%= f.label :password %>
+                    <%= f.password_field :password %>
+                    <%= error_field @student_session, :password %>
+                </div>
+            </div>
+
+            <div class="row">
+                <%= f.submit "Entrar!", class: "btn btn-large blue" %>
+            </div>
+        <% end %>
+    </div>
+</div>

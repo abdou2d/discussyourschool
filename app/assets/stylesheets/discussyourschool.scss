@@ -140,6 +140,52 @@
     }
 }
 
+.login-escolar {
+    text-align: center;
+
+    h2 {
+        font-size: 2.8em;
+    }
+
+    .formulario {
+        label {
+            font-size: 1.2em;
+        }
+
+        input[type=text],
+        input[type=number] {
+            text-align: center;
+            font-size: 1.2em;
+        }
+    }
+}
+
+.login-aluno {
+    text-align: center;
+
+    h2 {
+        font-size: 2.8em;
+    }
+
+    span {
+        position: absolute;
+        top: 16.5%;
+        right: 10%;
+    }
+
+    .formulario {
+        label {
+            font-size: 1.2em;
+        }
+
+        input[type=text],
+        input[type=number] {
+            text-align: center;
+            font-size: 1.2em;
+        }
+    }
+}
+
 .error {
     color: #d50000;
 }

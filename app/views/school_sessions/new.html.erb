@@ -1,0 +1,33 @@
+<div class="login-escolar container">
+    <h2>Login da escola</h2>
+
+    <% if @school_session.errors.has_key? :base %>
+        <div class="error">
+            <%= @school_session.errors[:base].join(', ') %>
+        </div>
+    <% end %>
+
+    <div class="formulario">
+        <%= form_for @school_session do |f| %>
+            <div class="row">
+                <div class="input-field col s12">
+                    <%= f.label :email %>
+                    <%= f.text_field :email %>
+                    <%= error_field @school_session, :email %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <%= f.label :password %>
+                    <%= f.password_field :password %>
+                    <%= error_field @school_session, :password %>
+                </div>
+            </div>
+
+            <div class="row">
+                <%= f.submit "Entrar!", class: "btn btn-large blue" %>
+            </div>
+        <% end %>
+    </div>
+</div>

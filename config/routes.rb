@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   resource :confirmation_school, only: [:show]
   resource :confirmation_student, only: [:show]
+
   resource :notify_school, only: [:new, :create]
+
+  resource :school_sessions, only: [:create, :new, :destroy]
+  resource :student_sessions, only: [:create, :new, :destroy]
 
   root 'home#index'
 end

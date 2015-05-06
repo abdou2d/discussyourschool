@@ -2,6 +2,8 @@ class School < ActiveRecord::Base
 
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
+    scope :confirmed, -> { where.not(confirmed_at: nil) }
+
     validates_presence_of :name, :email, :mec_code, :phone
 
     validates_uniqueness_of :name, :mec_code, :email
@@ -28,6 +30,14 @@ class School < ActiveRecord::Base
 
     def confirmed?
         confirmed_at.present?
+    end
+
+    def self.authenticate(email, password)
+        school = confirmed.find_by(email: email)
+
+        if school.present?
+            school.authenticate(password)
+        end
     end
 
 end

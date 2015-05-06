@@ -3,6 +3,8 @@ class Student < ActiveRecord::Base
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     VALID_BIRTHDAY_REGEX = /[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}/
 
+    scope :confirmed, -> { where.not(confirmed_at: nil) }
+
     validates_presence_of :school_name, :name, :birthday, :email
 
     validates_uniqueness_of :name, :email
@@ -41,6 +43,14 @@ class Student < ActiveRecord::Base
 
     def confirmed?
         confirmed_at.present?
+    end
+
+    def self.authenticate(email, password)
+        student = confirmed.find_by(email: email)
+
+        if student.present?
+            student.authenticate(password)
+        end
     end
 
 end
