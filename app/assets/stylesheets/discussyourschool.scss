@@ -45,6 +45,12 @@
         font-size: 2.8em;
     }
 
+    span {
+        position: absolute;
+        top: 16.5%;
+        right: 10%;
+    }
+
     .formulario {
         label {
             font-size: 1.2em;
@@ -105,6 +111,32 @@
         position: absolute;
         top: 12%;
         right: 1.5%;
+    }
+}
+
+.notify-school {
+    text-align: center;
+
+    .row {
+        margin-top: 5%;
+
+        .btn {
+            margin-top: 2%;
+        }
+    }
+
+    .notice {
+        font-size: 1.2em;
+        color: #2962ff;
+    }
+
+    label {
+        font-size: 1.2em;
+    }
+
+    input[type=text] {
+        text-align: center;
+        font-size: 1.2em;
     }
 }
 

@@ -1,0 +1,19 @@
+<div class="notify-school container">
+
+	<div class="row">
+        <div class="input-field col s12">
+			<%= form_tag notify_school_path, :method => :post do %>
+				<div>
+			    	<%= label_tag :email %>
+			    	<%= text_field_tag :email, params[:email], placeholder: "Notifique sua escola sobre esse projeto!" %>
+	  			</div>
+	  			<div><%= submit_tag "Enviar email para escola!", class: "btn btn-large blue darken-1" %></div>
+			<% end %>
+		</div>
+	</div>
+
+	<p class="notice">
+	    <%= notice %>
+	</p>
+
+</div>
