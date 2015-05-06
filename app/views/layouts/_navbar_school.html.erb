@@ -1,0 +1,19 @@
+<nav class="blue darken-2">
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Discuta. Solucione</a>
+
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="#">Discussões na escola</a></li>
+            <li><%= link_to "Minha conta", school_path(current_school) %></li>
+            <li><%= link_to "Logout", school_sessions_path, method: :delete %></li>
+        </ul>
+
+        <ul class="right hide-on-med-and-down">
+            <li><a href="#">Discussões na escola</a></li>
+            <li><%= link_to "Minha conta", school_path(current_school) %></li>
+            <li><%= link_to "Logout", school_sessions_path, method: :delete %></li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,7 @@
+<% if student_signed_in? %>
+    <%= render 'layouts/navbar_student' %>
+<% elsif school_signed_in? %>
+    <%= render 'layouts/navbar_school' %>
+<% else %>
+    <%= render 'layouts/navbar_off' %>
+<% end %>

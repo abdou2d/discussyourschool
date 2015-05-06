@@ -18,7 +18,7 @@ class StudentSessionsController < ApplicationController
     end
 
     def destroy
-        user_session.destroy
+        student_session.destroy
         redirect_to root_path, notice: "Logout realizado com sucesso!"
     end
 
