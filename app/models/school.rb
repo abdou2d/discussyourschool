@@ -15,6 +15,16 @@ class School < ActiveRecord::Base
 
     has_secure_password
 
+    def self.is_valid?(school_name)
+        school = confirmed.find_by(name: school_name)
+
+        if school.present?
+            true
+        else
+            false
+        end
+    end
+
     before_create do |school|
         school.confirmation_token = SecureRandom.urlsafe_base64
     end
@@ -30,6 +40,16 @@ class School < ActiveRecord::Base
 
     def confirmed?
         confirmed_at.present?
+    end
+
+    def self.is_school_valid?(school_name)
+        school = School.find_by(name: school_name)
+
+        if school.present?
+            true
+        else
+            false
+        end
     end
 
     def self.authenticate(email, password)

@@ -14,8 +14,10 @@ class Student < ActiveRecord::Base
     validates :grade, presence: true, :allow_blank => true
 
     validate :valid_date?
+    validate :valid_school?
 
     has_secure_password
+
     validates :password, presence: { on: :create }, length: { minimum: 6, allow_blank: true }
 
     def valid_date?
@@ -27,6 +29,12 @@ class Student < ActiveRecord::Base
 			end
 		end
 	end
+
+    def valid_school?
+        unless School.is_valid? self.school_name
+            errors.add(:school_name, "Sua escola não está cadastrada :(")
+        end
+    end
 
     before_create do |student|
         student.confirmation_token = SecureRandom.urlsafe_base64
