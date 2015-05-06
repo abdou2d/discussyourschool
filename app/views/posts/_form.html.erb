@@ -18,6 +18,13 @@
         <%= error_field @post, :school_name %>
 	</div>
 
+	<br>
+
+	<div class="row">
+		<%= f.check_box :anonymous %>
+		<%= f.label "Caso prefira, inicie a discussão anônimamente" %>
+	</div>
+
 	<div class="row"><%= f.submit %></div>
 
 <% end %>

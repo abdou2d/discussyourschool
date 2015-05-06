@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150506040914) do
+ActiveRecord::Schema.define(version: 20150506190238) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150506040914) do
     t.datetime "updated_at",  null: false
     t.integer  "student_id"
     t.string   "school_name"
+    t.string   "anonymous"
   end
 
   add_index "posts", ["student_id"], name: "index_posts_on_student_id"

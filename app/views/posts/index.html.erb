@@ -1,12 +1,16 @@
-<% @posts.each do |post| %>
-	<p>
-		<%= post.title %>
-	</p>
+<% if @posts.count == 0 %>
+	<h2>SEm posts até o momento!</h2>
+<% else %>
+	<% @posts.each do |post| %>
+		<p>
+			<%= post.title %>
+		</p>
 
-	<p>
-		<b><%= post.content %></b>
-	</p>
+		<p>
+			<b><%= post.content %></b>
+		</p>
 
-	<hr>
+		<hr>
 
+	<% end %>
 <% end %>

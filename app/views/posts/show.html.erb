@@ -5,3 +5,13 @@
 <p>
 	<b>Conteúdo:</b> <%= @post.content %>
 </p>
+
+<% if @post.anonymous == '0' %>
+	<p>
+		<b>Por:</b> <%= @post.user.name %>
+	</p>
+<% else %>
+	<p>
+		<b>Por:</b> Anônimo
+	</p>
+<% end %>
