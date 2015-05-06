@@ -25,16 +25,16 @@ class StudentSession
         @session[:student_id] = student.id
     end
 
-    def current_user
-        User.find(@session[:user_id])        
+    def current_student
+        Student.find(@session[:student_id])        
     end
 
-    def user_signed_in?
-        @session[:user_id].present?
+    def student_signed_in?
+        @session[:student_id].present?
     end
 
     def destroy
-        @session[:user_id] = nil
+        @session[:student_id] = nil
     end
 
 end

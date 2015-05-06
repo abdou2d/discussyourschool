@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
     autocomplete :school, :name, :full => true
 
-    before_action :require_authentication_student, only: [:edit, :update]
+    before_action :canc_change, only: [:edit, :update]
     before_action :require_no_authentication_student, only: [:new, :create]
 
     def show
@@ -38,6 +38,16 @@ class StudentsController < ApplicationController
     end
 
     private
+
+    def student
+        @student ||= Student.find(params[:id])
+    end
+
+    def can_change?
+        unless student_signed_in? && current_student = student
+            redirect_to student_path(params[:id])
+        end
+    end
 
     def student_params
         params.require(:student).permit(:school_name, :name, :birthday, :grade, :email, :password, :password_confirmation)

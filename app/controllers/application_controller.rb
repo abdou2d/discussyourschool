@@ -1,13 +1,13 @@
 class ApplicationController < ActionController::Base
 
-  	delegate :current_user, :user_signed_in?, to: :user_session
+  	delegate :current_student, :student_signed_in?, to: :student_session
   	delegate :current_school, :school_signed_in?, to: :school_session
-  	helper_method :current_user, :current_school, :user_signed_in?, :school_signed_in?
+  	helper_method :current_student, :current_school, :student_signed_in?, :school_signed_in?
   	protect_from_forgery with: :exception
 
 
 
-	def user_session
+	def student_session
 		StudentSession.new(session)
 	end
 
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def require_authentication_student
-		unless user_signed_in?
+		unless student_signed_in?
 			redirect_to root_path, notice: "Precisa estar logado como estudante!"
 		end
 	end
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def require_no_authentication_student
-		if user_signed_in?
+		if student_signed_in?
 			redirect_to root_path, notice: "Já se encontra logado como estudante!"
 		end
 	end
