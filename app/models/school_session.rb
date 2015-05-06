@@ -26,4 +26,16 @@ class SchoolSession
         @session[:school_id] = school.id
     end
 
+    def current_school
+        School.find(@session[:school_id])        
+    end
+
+    def school_signed_in?
+        @session[:school_id].present?
+    end
+
+    def destroy
+        @session[:school_id] = nil
+    end
+
 end

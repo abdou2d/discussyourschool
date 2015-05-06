@@ -1,5 +1,8 @@
 class SchoolSessionsController < ApplicationController
 
+    before_action :require_no_authentication_school, only: [:new, :create]
+    before_action :require_authentication_school, only: [:destroy]
+
     def new
         @school_session = SchoolSession.new(session)
     end
@@ -15,6 +18,8 @@ class SchoolSessionsController < ApplicationController
     end
 
     def destroy
+        school_session.destroy
+        redirect_to root_path, notice: "Logout feito com sucesso!"
     end
 
 end

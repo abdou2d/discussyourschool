@@ -1,5 +1,8 @@
 class SchoolsController < ApplicationController
 
+    before_action :require_authentication_school, only: [:edit, :update]
+    before_action :require_no_authentication_school, only: [:new, :create]
+
     def show
         @school = School.find(params[:id])
     end

@@ -1,6 +1,8 @@
 class StudentsController < ApplicationController
-
     autocomplete :school, :name, :full => true
+
+    before_action :require_authentication_student, only: [:edit, :update]
+    before_action :require_no_authentication_student, only: [:new, :create]
 
     def show
         @student = Student.find(params[:id])
