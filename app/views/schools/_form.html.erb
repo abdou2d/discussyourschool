@@ -2,7 +2,7 @@
     <div class="row">
         <div class="input-field col s12">
             <%= f.label :name %>
-            <%= f.text_field :name, class: "validate" %>
+            <%= f.text_field :name, class: "validate", :autofocus => true %>
             <%= error_field @school, :name %>
         </div>
     </div>

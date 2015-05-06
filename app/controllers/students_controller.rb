@@ -1,5 +1,7 @@
 class StudentsController < ApplicationController
 
+    autocomplete :school, :name, :full => true
+
     def show
         @student = Student.find(params[:id])
     end
