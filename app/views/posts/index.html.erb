@@ -2,8 +2,13 @@
 	<h2 style="text-align: center;">Sem discussões de problemas e soluções até o momento</h2>
 <% else %>
 	<% @posts.each do |post| %>
-
+		<p>
+			<b>Titulo:</b> <%= link_to post.title, post %>
+		</p>
 		
-
+		<p>
+			<b>Conteúdo:</b> <%= post.content %>
+		</p>
+		<hr>
 	<% end %>
 <% end %>

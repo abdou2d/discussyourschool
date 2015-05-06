@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   resources :posts do
       get :autocomplete_school_name, :on => :collection
+      member do
+        put "like", to: "posts#upvote"
+      end
   end
 
   resource :confirmation_school, only: [:show]

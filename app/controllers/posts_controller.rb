@@ -2,11 +2,11 @@ class PostsController < ApplicationController
 	autocomplete :school, :name, :full => true
 
 	before_action :require_authentication_student, only: [:new, :create, :edit, :update, :destroy]
-	before_action :set_post, only: [:show]
+	before_action :set_post, only: [:show, :upvote]
 	before_action :set_student_post, only: [:edit, :update]
 
 	def index
-		@posts = Post.where(school_name: current_student.school_name).all.order("created_at DESC")
+		@posts = Post.where(school_name: current_student.school_name).all.order(:cached_weighted_score => :desc)
 	end
 
 	def show
@@ -43,6 +43,11 @@ class PostsController < ApplicationController
 	def destroy
 		@post.destroy
 		redirect_to posts_path
+	end
+
+	def upvote
+		@post.upvote_by current_student
+  		redirect_to @post
 	end
 
 

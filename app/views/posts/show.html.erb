@@ -15,3 +15,15 @@
 		<b>Por:</b> Anônimo
 	</p>
 <% end %>
+
+<p>
+	<%= @post.get_upvotes.size %> Pessoas gostaram deste post
+</p>
+
+<% if student_signed_in? && @post.student_id != current_student.id %>
+	<div>
+		<%= link_to "Bom post!", like_post_path(@post.id), method: :put %>
+	</div>
+<% end %>
+
+

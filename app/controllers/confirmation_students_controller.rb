@@ -5,7 +5,7 @@ class ConfirmationStudentsController < ApplicationController
         if student.present?
             student.confirm!
 
-            redirect_to student, notice: "Cadastro confirmado com sucesso! Bora mudar sua escola?"
+            redirect_to student, notice: "Cadastro confirmado com sucesso! Bora mudar sua escola? Só falta logar!"
         else
             redirect_to root_path
         end
