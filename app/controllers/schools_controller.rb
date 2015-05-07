@@ -2,6 +2,7 @@ class SchoolsController < ApplicationController
 
     before_action :require_authentication_school, only: [:edit, :update]
     before_action :require_no_authentication_school, only: [:new, :create]
+    before_action :can_see_show, only: [:show]
 
     def show
         @school = School.find(params[:id])
@@ -30,7 +31,7 @@ class SchoolsController < ApplicationController
         @school = School.find(params[:id])
 
         if @school.update(school_params)
-            redirect_to @school, notice: 'Perfil da escola editado com sucesso!'
+            redirect_to @school, alert: 'Perfil da escola editado com sucesso!'
         else
             render action: :edit
         end
@@ -40,6 +41,16 @@ class SchoolsController < ApplicationController
 
     def school_params
         params.require(:school).permit(:name, :email, :mec_code, :phone, :password, :password_confirmation)
+    end
+
+    def can_see_show
+        unless school_signed_in? && current_school == school
+            redirect_to root_path, notice: "Acesso negado!"
+        end
+    end
+
+    def school
+        @school ||= School.find(params[:id])
     end
 
 end
