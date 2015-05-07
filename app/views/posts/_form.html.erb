@@ -20,8 +20,8 @@
 	<br>
 
 	<div class="row">
-		<%= f.check_box :anonymous, id: "post_anonymous" %>
-		<%= f.label "anonymous" %>
+		<%= f.check_box :anonymous, id: "anemona" %>
+		<%= f.label "Caso queira, poste anonimamente!", {}, {:for => "anemona"} %>
 	</div>
 
 	<div class="row"><%= f.submit "Postar problema", class: "btn btn-large blue darken-1" %></div>
