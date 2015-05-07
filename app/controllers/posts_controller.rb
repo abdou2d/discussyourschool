@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
-		@comments = @post.comments.order("created_at DESC")
+		@comments = @post.comments.order(:cached_weighted_score => :desc)
 	end
 
 	def new
