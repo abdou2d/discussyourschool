@@ -1,0 +1,20 @@
+<%= form_for ([@post, @post.comments.build]) do |f| %>
+	<div class="row">
+        <div class="input-field col s12">
+            <i class="mdi-editor-mode-edit prefix"></i>
+			<%= f.text_area :content, class: "materialize-textarea" %>
+        </div>
+	</div>
+
+    <% if student_signed_in? %>
+    	<div class="row">
+            <%= f.check_box :anonymous, id: "anemona" %>
+    		<%= f.label "Caso queira, divulgue sua solução anonimamente! :D", {}, {:for => "anemona"} %>
+    	</div>
+    <% end %>
+
+    <div class="row">
+		<%= f.submit "Criar solução", class: "btn btn-large blue darken-3" %>
+	</div>
+
+<% end %>

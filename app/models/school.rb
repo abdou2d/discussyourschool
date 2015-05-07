@@ -1,5 +1,7 @@
 class School < ActiveRecord::Base
 
+    has_many :comments, dependent: :destroy
+
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
     scope :confirmed, -> { where.not(confirmed_at: nil) }

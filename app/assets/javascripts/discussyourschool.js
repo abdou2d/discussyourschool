@@ -1,5 +1,5 @@
 $( document ).ready(function(){
-    
+
     $(".button-collapse").sideNav();
     $(".dropdown-button").dropdown();
 
@@ -7,5 +7,7 @@ $( document ).ready(function(){
     $(".birthday").mask("99/99/9999");
 
     $('select').material_select();
+
+    $('.modal-trigger').leanModal();
 
 });

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
+      resources :comments, only: [:create, :destroy]
+
       get :autocomplete_school_name, :on => :collection
       member do
         put "like", to: "posts#upvote"

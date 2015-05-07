@@ -9,9 +9,23 @@
 				<li class="collection-item avatar">
 					<i class="mdi-image-lens circle red"></i>
 					<span class="title titulo" style="font-size: 1.4em;"><%= link_to post.title, post %></span>
-					<p>Por: <%= post.student.name %><br>
-	         			Há: <%= time_ago_in_words(post.created_at) %>
+					<p>Por:
+					<% if post.anonymous == '1' %>
+						Anônimo
+					<% else %>
+					<%= post.student.name %>
+					<% end %><br>
+	         			Há <%= time_ago_in_words(post.created_at) %>
 	      			</p>
+					<p class="secondary-content">
+						<% if post.comments.count == 0 %>
+							Nenhuma solução
+						<% elsif post.comments.count == 1 %>
+							Uma solução
+						<% else %>
+							<%= post.comments.count %> soluções
+						<% end %>
+					</p>
 				</li>
 			<% end %>
 		</ul>
