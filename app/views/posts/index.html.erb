@@ -1,14 +1,19 @@
-<% if @posts.count == 0 %>
-	<h2 style="text-align: center;">Sem discussões de problemas e soluções até o momento</h2>
-<% else %>
-	<% @posts.each do |post| %>
-		<p>
-			<b>Titulo:</b> <%= link_to post.title, post %>
-		</p>
-		
-		<p>
-			<b>Conteúdo:</b> <%= post.content %>
-		</p>
-		<hr>
+<div class="posts container">
+	<% if @posts.count == 0 %>
+		<h2 style="text-align: center;">Sem discussões de problemas e soluções até o momento</h2>
+	<% else %>
+		<ul class="collection">
+			<li class="collection-header"><h4 style="text-align: center; padding: 2%;">Problemas. Solucione-os!</h4></li>
+			<li class="divider"></li>
+			<% @posts.each do |post| %>
+				<li class="collection-item avatar">
+					<i class="mdi-image-lens circle red"></i>
+					<span class="title titulo" style="font-size: 1.4em;"><%= link_to post.title, post %></span>
+					<p>Por: <%= post.student.name %><br>
+	         			Há: <%= time_ago_in_words(post.created_at) %>
+	      			</p>
+				</li>
+			<% end %>
+		</ul>
 	<% end %>
-<% end %>
+</div>

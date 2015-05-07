@@ -20,8 +20,8 @@
 	<br>
 
 	<div class="row">
-		<%= f.check_box :anonymous %>
-		<%= f.label "Caso prefira, inicie a discussão anônimamente" %>
+		<%= f.check_box :anonymous, id: "post_anonymous" %>
+		<%= f.label "anonymous" %>
 	</div>
 
 	<div class="row"><%= f.submit "Postar problema", class: "btn btn-large blue darken-1" %></div>
