@@ -7,8 +7,15 @@
 			<li class="divider"></li>
 			<% @posts.each do |post| %>
 				<li class="collection-item avatar">
-					<i class="mdi-image-lens circle red"></i>
+
+					<% if post.close_post != '1' %>
+						<i class="mdi-image-lens circle red"></i>
+					<% else %>
+						<i class="mdi-image-lens circle green"></i>
+					<% end %>
+
 					<span class="title titulo" style="font-size: 1.4em;"><%= link_to post.title, post %></span>
+
 					<p>Por:
 					<% if post.anonymous == '1' %>
 						Anônimo
@@ -18,6 +25,14 @@
 	         			Há <%= time_ago_in_words(post.created_at) %>
 	      			</p>
 					<p class="secondary-content">
+						<% if post.get_upvotes.size == 0 %>
+							Ninguém curtiu
+						<% elsif post.get_upvotes.size == 1 %>
+							Uma pessoa curtiu
+						<% else %>
+							<%= post.get_upvotes.size %> curtiram
+						<% end %>
+						<br>
 						<% if post.comments.count == 0 %>
 							Nenhuma solução
 						<% elsif post.comments.count == 1 %>

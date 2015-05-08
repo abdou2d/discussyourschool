@@ -5,7 +5,7 @@ class SchoolsController < ApplicationController
     before_action :can_see_show, only: [:show]
 
     def show
-        @school = School.find(params[:id])
+        @school = School.friendly.find(params[:id])
     end
 
     def new
@@ -24,11 +24,11 @@ class SchoolsController < ApplicationController
     end
 
     def edit
-        @school = School.find(params[:id])
+        @school = School.friendly.find(params[:id])
     end
 
     def update
-        @school = School.find(params[:id])
+        @school = School.friendly.find(params[:id])
 
         if @school.update(school_params)
             redirect_to @school, alert: 'Perfil da escola editado com sucesso!'
@@ -50,7 +50,7 @@ class SchoolsController < ApplicationController
     end
 
     def school
-        @school ||= School.find(params[:id])
+        @school ||= School.friendly.find(params[:id])
     end
 
 end

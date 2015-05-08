@@ -1,5 +1,7 @@
 class Student < ActiveRecord::Base
 
+    extend FriendlyId
+
     has_many :posts, dependent: :destroy
     has_many :comments, dependent: :destroy
 
@@ -10,17 +12,19 @@ class Student < ActiveRecord::Base
 
     scope :confirmed, -> { where.not(confirmed_at: nil) }
 
-    validates_presence_of :school_name, :name, :birthday, :email
+    validates_presence_of :school_name, :name, :birthday, :email, :slug
     validates_uniqueness_of :name, :email
+
     validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
     validates :birthday, presence: true, format: { with: VALID_BIRTHDAY_REGEX }
     validates :grade, presence: true, :allow_blank => true
     validates :password, presence: { on: :create }, length: { minimum: 6, allow_blank: true }
+
     validate :valid_date?
 
+    friendly_id :name, use: [:slugged]
 
     has_secure_password
-
 
     def valid_date?
 		if self.birthday

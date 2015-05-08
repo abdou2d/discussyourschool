@@ -34,6 +34,10 @@ gem 'rails-jquery-autocomplete'
 
 gem 'acts_as_votable', '~> 0.10.0'
 
+gem 'kaminari'
+
+gem 'friendly_id', '5.0.3'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -1,12 +1,14 @@
 class School < ActiveRecord::Base
 
+    extend FriendlyId
+
     has_many :comments, dependent: :destroy
 
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
     scope :confirmed, -> { where.not(confirmed_at: nil) }
 
-    validates_presence_of :name, :email, :mec_code, :phone
+    validates_presence_of :name, :email, :mec_code, :phone, :slug
 
     validates_uniqueness_of :name, :mec_code, :email
 
@@ -14,6 +16,8 @@ class School < ActiveRecord::Base
 
     validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
     validates :password, presence: { on: :create }, length: { minimum: 6, allow_blank: true }
+
+    friendly_id :name, use: [:slugged, :history]
 
     has_secure_password
 

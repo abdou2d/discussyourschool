@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507053544) do
+ActiveRecord::Schema.define(version: 20150507224528) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -41,6 +41,19 @@ ActiveRecord::Schema.define(version: 20150507053544) do
   add_index "comments", ["school_id"], name: "index_comments_on_school_id"
   add_index "comments", ["student_id"], name: "index_comments_on_student_id"
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
@@ -56,6 +69,9 @@ ActiveRecord::Schema.define(version: 20150507053544) do
     t.integer  "cached_weighted_score",   default: 0
     t.integer  "cached_weighted_total",   default: 0
     t.float    "cached_weighted_average", default: 0.0
+    t.string   "slug"
+    t.string   "close_post"
+    t.string   "reopen_post"
   end
 
   add_index "posts", ["cached_votes_down"], name: "index_posts_on_cached_votes_down"
@@ -65,6 +81,7 @@ ActiveRecord::Schema.define(version: 20150507053544) do
   add_index "posts", ["cached_weighted_average"], name: "index_posts_on_cached_weighted_average"
   add_index "posts", ["cached_weighted_score"], name: "index_posts_on_cached_weighted_score"
   add_index "posts", ["cached_weighted_total"], name: "index_posts_on_cached_weighted_total"
+  add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true
   add_index "posts", ["student_id"], name: "index_posts_on_student_id"
 
   create_table "schools", force: :cascade do |t|
@@ -77,10 +94,12 @@ ActiveRecord::Schema.define(version: 20150507053544) do
     t.string   "password_digest"
     t.datetime "confirmed_at"
     t.string   "confirmation_token"
+    t.string   "slug"
   end
 
   add_index "schools", ["email"], name: "index_schools_on_email", unique: true
   add_index "schools", ["name"], name: "index_schools_on_name", unique: true
+  add_index "schools", ["slug"], name: "index_schools_on_slug", unique: true
 
   create_table "students", force: :cascade do |t|
     t.string   "school_name"
@@ -94,10 +113,12 @@ ActiveRecord::Schema.define(version: 20150507053544) do
     t.datetime "updated_at"
     t.datetime "confirmed_at"
     t.string   "confirmation_token"
+    t.string   "slug"
   end
 
   add_index "students", ["email"], name: "index_students_on_email", unique: true
   add_index "students", ["name"], name: "index_students_on_name", unique: true
+  add_index "students", ["slug"], name: "index_students_on_slug", unique: true
 
   create_table "votes", force: :cascade do |t|
     t.integer  "votable_id"

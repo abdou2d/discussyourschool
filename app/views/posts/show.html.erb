@@ -3,13 +3,29 @@
 	<div class="row">
 		<div class="col s12">
 			<div class="card light-blue">
-				<div class="col s1 right">
-					<div class="vote-post">
-						<% if student_signed_in? && @post.student_id != current_student.id %>
-							<%= link_to content_tag(:i, "", :class => "medium mdi-action-thumb-up"), like_post_path(@post.id), method: :put %>
-						<% end %>
-					</div>
-				</div>
+				<% if student_signed_in? %>
+					<% if @post.student_id != current_student.id %>
+						<div class="col s1 right">
+							<div class="vote-post">
+								<% if @post.close_post != '1' %>
+									<%= link_to content_tag(:i, "", :class => "medium mdi-action-thumb-up"), like_post_path(@post.id), method: :put %>
+								<% else %>
+									<a onclick="Materialize.toast('Solução já encontrada!', 1200)">
+										<i class="medium mdi-action-thumb-up"></i>
+									</a>
+								<% end %>
+							</div>
+						</div>
+					<% else %>
+						<div class="col s3 right" style="margin-top: 1%; margin-right: -3%;">
+							<% if @post.close_post != '1' %>
+								<%= link_to "Solução encontrada!", close_post_path(@post), method: :put, class: "btn waves-effect waves-light" %>
+							<% else %>
+								<%= link_to "Reabrir problema", reopen_post_path(@post), method: :put, class: "btn orange darken-2 waves-effect waves-light" %>
+							<% end %>
+						</div>
+					<% end %>
+				<% end %>
 				<div class="card-content white-text">
 					<span class="card-title" style="font-size: 2.3em;"><%= @post.title %></span>
 					<p style="font-size: 1.3em;"><%= @post.content %></p>
@@ -56,23 +72,26 @@
 
 </div>
 
+<% if @post.close_post != '1' %>
+	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+	    <a class="btn-floating btn-large blue cyan darken-2 modal-trigger" href="#showFormComment">
+	      <i class="large mdi-editor-mode-edit"></i>
+		</a>
+	</div>
+<% end %>
 
-<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    <a class="btn-floating btn-large blue cyan darken-2 modal-trigger" href="#showFormComment">
-      <i class="large mdi-editor-mode-edit"></i>
-	</a>
-</div>
-
-<div id="showFormComment" class="modal">
-	<div class="modal-content">
-		<div style="text-align: center;">
-			<h4 style="text-align: center;">Mostre sua solução!</h4>
-			<% if student_signed_in? || school_signed_in? %>
-				<%= render "comments/form" %>
-			<% end %>
-		</div>
-    </div>
-</div>
+<% if @post.close_post != '1' %>
+	<div id="showFormComment" class="modal">
+		<div class="modal-content">
+			<div style="text-align: center;">
+				<h4 style="text-align: center;">Mostre sua solução!</h4>
+				<% if student_signed_in? || school_signed_in? %>
+					<%= render "comments/form" %>
+				<% end %>
+			</div>
+	    </div>
+	</div>
+<% end %>
 
 
 <p>

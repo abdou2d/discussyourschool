@@ -5,7 +5,10 @@ class StudentsController < ApplicationController
     before_action :require_no_authentication_student, only: [:new, :create]
 
     def show
-        @student = Student.find(params[:id])
+        @student = Student.friendly.find(params[:id])
+
+        @posts_owner = @student.posts
+        @posts_visitor = @student.posts.where.not(anonymous: '1')
     end
 
     def new
@@ -24,11 +27,11 @@ class StudentsController < ApplicationController
     end
 
     def edit
-        @student = Student.find(params[:id])
+        @student = Student.friendly.find(params[:id])
     end
 
     def update
-        @student = Student.find(params[:id])
+        @student = Student.friendly.find(params[:id])
 
         if @student.update(student_params)
             redirect_to @student, notice: 'Perfil editado com sucesso!'
@@ -40,7 +43,7 @@ class StudentsController < ApplicationController
     private
 
     def student
-        @student ||= Student.find(params[:id])
+        @student ||= Student.friendly.find(params[:id])
     end
 
     def can_change

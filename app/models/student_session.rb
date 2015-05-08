@@ -26,7 +26,7 @@ class StudentSession
     end
 
     def current_student
-        Student.find(@session[:student_id])        
+        Student.friendly.find(@session[:student_id])        
     end
 
     def student_signed_in?

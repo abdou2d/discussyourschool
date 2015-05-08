@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		@post = Post.find(params[:id])
+		@post = Post.friendly.find(params[:id])
 		@comments = @post.comments.order(:cached_weighted_score => :desc)
 	end
 
@@ -35,7 +35,6 @@ class PostsController < ApplicationController
 	end
 
 	def edit
-
 	end
 
 	def update
@@ -56,19 +55,37 @@ class PostsController < ApplicationController
   		redirect_to @post
 	end
 
+	def close
+		@post = Post.friendly.find(params[:id])
+		@post.close_post = '1'
+		@post.reopen_post = 0
 
+		@post.save!
+
+		redirect_to @post
+	end
+
+	def reopen
+		@post = Post.friendly.find(params[:id])
+		@post.close_post = '0'
+		@post.reopen_post = '1'
+
+		@post.save!
+
+		redirect_to @post
+	end
 
 	private
 
 	def set_student_post
-		@post = current_student.posts.find(params[:id])
+		@post = current_student.posts.friendly.find(params[:id])
 	end
 
 	def set_post
-		@post = Post.find(params[:id])
+		@post = Post.friendly.find(params[:id])
 	end
 
 	def post_params
-		params.require(:post).permit(:title, :content, :school_name, :anonymous)
+		params.require(:post).permit(:title, :content, :school_name, :anonymous, :close_post, :reopen_post)
 	end
 end

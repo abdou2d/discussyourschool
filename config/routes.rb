@@ -13,10 +13,19 @@ Rails.application.routes.draw do
         end
       end
 
-      get :autocomplete_school_name, :on => :collection
       member do
         put "like", to: "posts#upvote"
       end
+
+      member do
+          put :close
+      end
+
+      member do
+          put :reopen
+      end
+
+      get :autocomplete_school_name, :on => :collection
   end
 
   resource :confirmation_school, only: [:show]
