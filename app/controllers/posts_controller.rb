@@ -6,9 +6,9 @@ class PostsController < ApplicationController
 
 	def index
 		if student_signed_in?
-			@posts = Post.where(school_name: current_student.school_name).all.order(:cached_weighted_score => :desc)
+			@posts = Post.where(school_name: current_student.school_name).all.order(:cached_weighted_score => :desc).page(params[:page]).per(8)
 		elsif school_signed_in?
-			@posts = Post.where(school_name: current_school.name).all.order(:cached_weighted_score => :desc)
+			@posts = Post.where(school_name: current_school.name).all.order(:cached_weighted_score => :desc).page(params[:page]).per(8)
 		end
 	end
 

@@ -9,6 +9,7 @@ class StudentsController < ApplicationController
 
         @posts_owner = @student.posts
         @posts_visitor = @student.posts.where.not(anonymous: '1')
+
     end
 
     def new
