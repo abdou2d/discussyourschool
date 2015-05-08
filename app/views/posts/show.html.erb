@@ -8,7 +8,15 @@
 						<div class="col s1 right">
 							<div class="vote-post">
 								<% if @post.close_post != '1' %>
-									<%= link_to content_tag(:i, "", :class => "medium mdi-action-thumb-up"), like_post_path(@post.id), method: :put %>
+									<% if current_student.liked? @post %>
+										<div class="voted">
+											<%= link_to content_tag(:i, "", :class => "medium mdi-action-thumb-up"), unlike_post_path(@post.id), method: :put, :onclick => "Materialize.toast('Unliked', 800)" %>
+										</div>
+									<% else %>
+										<div class="not-voted">
+											<%= link_to content_tag(:i, "", :class => "medium mdi-action-thumb-up"), like_post_path(@post.id), method: :put, :onclick => "Materialize.toast('Liked', 800)" %>
+										</div>
+									<% end %>
 								<% else %>
 									<a onclick="Materialize.toast('Solução já encontrada!', 1200)">
 										<i class="medium mdi-action-thumb-up"></i>
@@ -106,5 +114,5 @@
 	<p>
 		<%= link_to 'Apagar post', post_path, :method => :delete, data: { confirm: "Tem certeza que quer deletar este post?" } %>
 	</p>
-	
+
 <% end %>

@@ -5,9 +5,29 @@
         <li class="collection-item avatar">
 
             <% if student_signed_in? && comment.student_id != current_student.id %>
-                <%= link_to content_tag(:i, "", :class => "large mdi-action-thumb-up circle"), like_post_comment_path(@post.id, comment), method: :put %>
+
+                <% if @post.close_post != '1' %>
+                    <% if current_student.liked? comment %>
+                        <%= link_to content_tag(:i, "", :class => "medium mdi-action-thumb-up circle blue darken-4"), unlike_post_comment_path(@post.id, comment), method: :put, :onclick => "Materialize.toast('Liked', 800, 'rounded')" %>
+                    <% else %>
+                        <%= link_to content_tag(:i, "", :class => "medium mdi-action-thumb-up circle blue-grey darken-4"), like_post_comment_path(@post.id, comment), method: :put, :onclick => "Materialize.toast('Liked', 800, 'rounded')" %>
+                    <% end %>
+
+                <% else %>
+                    <% if current_student.liked? comment %>
+                        <a onclick="Materialize.toast('Solução já encontrada!', 1200)">
+                            <i class="medium mdi-action-thumb-up circle blue darken-4"></i>
+                        </a>
+                    <% else %>
+                        <a onclick="Materialize.toast('Solução já encontrada!', 1200)">
+                            <i class="medium mdi-action-thumb-up circle blue-grey darken-4"></i>
+                        </a>
+                    <% end %>
+                <% end %>
+
+
             <% end %>
-            
+
             <span class="title" style="font-size: 1.1em;"><b><%= comment.content %></b></span>
 
             <p>

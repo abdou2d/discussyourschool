@@ -23,7 +23,7 @@
                         <% end %>
                     </li>
 
-                    <% if @student.id == current_student.id %>
+                    <% if student_signed_in? && current_student.id == @student.id %>
                         <% @posts_owner.each do |post| %>
                             <%= link_to post.title, post_path(post), class: "collection-item" %>
                         <% end %>

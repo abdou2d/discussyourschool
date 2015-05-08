@@ -25,12 +25,23 @@ class CommentsController < ApplicationController
 		redirect_to post_path(@post)
 	end
 
-	def upvote
+	def like
 		@post = Post.find(params[:post_id])
+
 		@comment = @post.comments.find(params[:id])
-		@comment.upvote_by current_student
+		@comment.liked_by current_student
+
   		redirect_to @post
 	end
+
+    def unlike
+        @post = Post.find(params[:post_id])
+
+        @comment = @post.comments.find(params[:id])
+        @comment.unliked_by current_student
+
+        redirect_to @post
+    end
 
     private
 

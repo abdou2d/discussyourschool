@@ -49,9 +49,16 @@ class PostsController < ApplicationController
 		redirect_to posts_path
 	end
 
-	def upvote
-		@post = Post.friendly.find(params[:id])
-		@post.upvote_by current_student
+	def like
+		@post = Post.find(params[:id])
+		@post.liked_by current_student
+  		redirect_to @post
+	end
+
+	def unlike
+  		@post = Post.find(params[:id])
+  		@post.unliked_by current_student
+
   		redirect_to @post
 	end
 

@@ -1,11 +1,12 @@
 class ApplicationController < ActionController::Base
 
-  	delegate :current_student, :student_signed_in?, to: :student_session
-  	delegate :current_school, :school_signed_in?, to: :school_session
-
-    helper_method :current_student, :current_school, :student_signed_in?, :school_signed_in?
-
     protect_from_forgery with: :exception
+
+    delegate :current_student, :student_signed_in?, to: :student_session
+    delegate :current_school, :school_signed_in?, to: :school_session
+
+    helper_method :current_student, :student_signed_in?
+    helper_method :current_school, :school_signed_in?
 
 
 	def student_session
