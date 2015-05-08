@@ -18,6 +18,7 @@ class StudentSession
             store(student)
         else
             errors.add(:base, "Email ou senha inválidos!")
+            false
         end
     end
 
@@ -26,7 +27,7 @@ class StudentSession
     end
 
     def current_student
-        Student.friendly.find(@session[:student_id])        
+        Student.find(@session[:student_id])        
     end
 
     def student_signed_in?

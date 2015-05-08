@@ -80,7 +80,7 @@
 	</div>
 <% end %>
 
-<% if @post.close_post != '1' %>
+<% if @post.close_post == '0' %>
 	<div id="showFormComment" class="modal">
 		<div class="modal-content">
 			<div style="text-align: center;">
@@ -97,3 +97,14 @@
 <p>
 	<%= @post.get_upvotes.size %> Pessoas gostaram deste post
 </p>
+
+<% if student_signed_in? && @post.student_id == current_student.id %>
+	<p>
+		<%= link_to "Editar post", edit_post_path(@post) %>
+	</p>
+
+	<p>
+		<%= link_to 'Apagar post', post_path, :method => :delete, data: { confirm: "Tem certeza que quer deletar este post?" } %>
+	</p>
+	
+<% end %>

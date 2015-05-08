@@ -2,7 +2,6 @@ class PostsController < ApplicationController
 	autocomplete :school, :name, :full => true
 
 	before_action :require_authentication_student, only: [:new, :create, :edit, :update, :destroy]
-	before_action :set_post, only: [:show, :upvote]
 	before_action :set_student_post, only: [:edit, :update]
 
 	def index
@@ -51,6 +50,7 @@ class PostsController < ApplicationController
 	end
 
 	def upvote
+		@post = Post.friendly.find(params[:id])
 		@post.upvote_by current_student
   		redirect_to @post
 	end
@@ -79,10 +79,6 @@ class PostsController < ApplicationController
 
 	def set_student_post
 		@post = current_student.posts.friendly.find(params[:id])
-	end
-
-	def set_post
-		@post = Post.friendly.find(params[:id])
 	end
 
 	def post_params
