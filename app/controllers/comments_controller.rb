@@ -27,9 +27,13 @@ class CommentsController < ApplicationController
 
 	def like
 		@post = Post.find(params[:post_id])
-
 		@comment = @post.comments.find(params[:id])
-		@comment.liked_by current_student
+		
+		if student_signed_in?
+        	@comment.liked_by current_student
+        elsif school_signed_in?
+        	@comment.liked_by current_school
+        end
 
   		redirect_to @post
 	end
@@ -38,7 +42,29 @@ class CommentsController < ApplicationController
         @post = Post.find(params[:post_id])
 
         @comment = @post.comments.find(params[:id])
-        @comment.unliked_by current_student
+        if student_signed_in?
+        	@comment.unliked_by current_student
+        elsif school_signed_in?
+        	@comment.unliked_by current_school
+        end
+
+        redirect_to @post
+    end
+
+    def liked_by_school
+    	@post = Post.find(params[:post_id])
+
+		@comment = @post.comments.find(params[:id])
+		@comment.liked_by current_school
+
+  		redirect_to @post
+    end
+
+    def unliked_by_school
+    	@post = Post.find(params[:post_id])
+
+        @comment = @post.comments.find(params[:id])
+        @comment.unliked_by current_school
 
         redirect_to @post
     end

@@ -15,6 +15,7 @@ class PostsController < ApplicationController
 	def show
 		@post = Post.friendly.find(params[:id])
 		@comments = @post.comments.order(:cached_weighted_score => :desc)
+		@school = School.find_by(name: @post.school_name)
 	end
 
 	def new
