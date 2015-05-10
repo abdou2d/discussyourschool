@@ -17,7 +17,7 @@ class SchoolsController < ApplicationController
 
         if @school.save
             SignupSchool.confirm_email(@school).deliver
-            redirect_to @school, notice: 'Parabéns! Agora, é necessário confirmar o cadastro. Acesse seu email e confirme!'
+            redirect_to root_path, notice: t('flash.notice.check_email_signup')
         else
             render action: :new
         end
@@ -31,7 +31,7 @@ class SchoolsController < ApplicationController
         @school = School.friendly.find(params[:id])
 
         if @school.update(school_params)
-            redirect_to @school, alert: 'Perfil da escola editado com sucesso!'
+            redirect_to @school, notice: t('flash.notice.school_edited_succesfully')
         else
             render action: :edit
         end
@@ -45,7 +45,7 @@ class SchoolsController < ApplicationController
 
     def can_see_show
         unless school_signed_in? && current_school == school
-            redirect_to root_path, notice: "Acesso negado!"
+            redirect_to root_path,alert: t('flash.alert.access_denied')
         end
     end
 

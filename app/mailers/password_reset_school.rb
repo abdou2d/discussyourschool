@@ -8,7 +8,7 @@ class PasswordResetSchool < ActionMailer::Base
         mail({
             to: school.email,
             bcc: ['Sign up <signup@discussyourschool.com>'],
-            subject: "Reset password"
+            subject: I18n.t('email.reset_password_school.subject')
         })
     end
 end

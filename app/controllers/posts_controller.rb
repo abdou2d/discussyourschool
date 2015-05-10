@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 		@post.school_name = current_student.school_name
 
 		if @post.save
-			redirect_to @post, notice: "Post criado com sucesso"
+			redirect_to @post, notice: t('flash.notice.post_created_succesfully')
 		else
 			render action: :new
 		end
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
 
 	def update
 		if @post.update(post_params)
-			redirect_to @post, notice: "Post editado com sucesso!"
+			redirect_to @post, notice: t('flash.notice.post_edited_succesfully')
 		else
 			render action: :edit
 		end

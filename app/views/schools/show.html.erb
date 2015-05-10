@@ -1,9 +1,5 @@
-<p id="notice">
-    <%= notice %>
-</p>
-
-<h2>Escola: <%= @school.name %></h2>
+<h2><%= t('schools.show.first_line') %> <%= @school.name %></h2>
 
 <p>
-    <%= link_to 'Editar perfil da escola', edit_school_path(@school) %>
+    <%= link_to t('schools.show.edit_school_link'), edit_school_path(@school) %>
 </p>

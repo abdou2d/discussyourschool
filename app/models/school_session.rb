@@ -17,7 +17,7 @@ class SchoolSession
         if school.present?
             store(school)
         else
-            errors.add(:base, "Email ou senha inválidos!")
+            errors.add(:base, :invalid_login)
             false
         end
     end

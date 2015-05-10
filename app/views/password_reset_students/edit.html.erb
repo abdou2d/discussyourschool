@@ -4,7 +4,7 @@
 
         <% if @student.errors.any? %>
             <div class="error_messages">
-                <h2>Form is invalid</h2>
+                <h2><%= t('password_reset_schools.edit.form_invalid') %></h2>
                 <ul>
                     <% for message in @student.errors.full_messages %>
                         <li><%= message %></li>
@@ -15,19 +15,17 @@
 
         <div class="row">
             <div class="input-field col s12">
-                <%= f.label :password %>
-                <%= f.password_field :password %>
+                <%= f.password_field :password, placeholder => t('password_reset_students.edit.placeholder_password') %>
             </div>
         </div>
 
         <div class="row">
             <div class="input-field col s12">
-                <%= f.label :password_confirmation %>
-                <%= f.password_field :password_confirmation %>
+                <%= f.password_field :password_confirmation, :placeholder => t('password_reset_students.edit.placeholder_password_confirmation') %>
             </div>
         </div>
 
-        <div class="row"><%= f.submit "Update Password", class: "btn btn-large blue darken-1" %></div>
+        <div class="row"><%= f.submit t('helpers.submit.password_reset_students_edit'), class: "btn btn-large blue darken-1" %></div>
     <% end %>
 
 </div>

@@ -26,12 +26,12 @@
 
 							<strong>
 								<span style="position: absolute; font-size: 0.8em; top: 39%;">
-									<% if @post.get_upvotes.size == 0 %>
-									 	Ninguém apoia. Ainda
-									<% elsif @post.get_upvotes.size == 1 %>
-										Um apoia
+									<% if @post.get_likes.size == 0 %>
+									 	<%= t('posts.show.zero_likes') %>
+									<% elsif @post.get_likes.size == 1 %>
+										<%= t('posts.show.one_like') %>
 									<% else %>
-										<%= @post.get_upvotes.size %> apoiam
+										<%= @post.get_likes.size %> <%= t('posts.show.support') %>
 									<% end %>
 								</span>
 							<strong>
@@ -39,9 +39,9 @@
 					<% else %>
 						<div class="col s3 right" style="margin-top: 1%; margin-right: -3%;">
 							<% if @post.close_post != '1' %>
-								<%= link_to "Solução encontrada!", close_post_path(@post), method: :put, class: "btn waves-effect waves-light" %>
+								<%= link_to t('posts.show.solution_founded'), close_post_path(@post), method: :put, class: "btn waves-effect waves-light" %>
 							<% else %>
-								<%= link_to "Reabrir problema", reopen_post_path(@post), method: :put, class: "btn orange darken-2 waves-effect waves-light" %>
+								<%= link_to t('posts.show.reopen_problem'), reopen_post_path(@post), method: :put, class: "btn orange darken-2 waves-effect waves-light" %>
 							<% end %>
 						</div>
 					<% end %>
@@ -52,9 +52,9 @@
 				</div>
 				<div class="card-action">
 					<% if @post.anonymous == '1' %>
-						<a href="">Por Anônimo</a>
+						<%= t('posts.show.anonymous') %>
 					<% else %>
-						<%= link_to "Por #{@post.student.name}"%>
+						<%= link_to t('posts.index.author', author: @post.user.name) %>
 					<% end %>
             	</div>
 			</div>
@@ -65,7 +65,7 @@
 		<% if @post.comments.count == 0 %>
 		<ul class="collection">
 			<div class="numero-comentarios">
-				<li class="collection-header"><h2 style="font-size: 2.5em; text-align: center;">Nenhuma solução :/</h2></li>
+				<li class="collection-header"><h2 style="font-size: 2.5em; text-align: center;"><%= t('posts.show.zero_solutions') %></h2></li>
 			</div>
 			<li class="divider"></li>
 		</ul>
@@ -73,7 +73,7 @@
 			<% if @post.comments.count == 1 %>
 			<ul class="collection">
 				<div class="numero-comentarios">
-					<li class="collection-header"><h2 style="font-size: 2.5em; text-align: center;">Uma solução</h2></li>
+					<li class="collection-header"><h2 style="font-size: 2.5em; text-align: center;"><%= t('posts.ahow.one_solution') %></h2></li>
 				</div>
 				<li class="divider"></li>
 				<div class="comentario"><%= render "comments/comment" %></div>
@@ -81,7 +81,7 @@
 			<% else %>
 				<ul class="collection">
 					<div class="numero-comentarios">
-						<li class="collection-header"><h2 style="font-size: 2.5em; text-align: center;"><%= @post.comments.count %> Soluções</h2></li>
+						<li class="collection-header"><h2 style="font-size: 2.5em; text-align: center;"><%= @post.comments.count %> <%= t('posts.index.solutions') %></h2></li>
 					</div>
 					<li class="divider"></li>
 					<div class="comentario"><%= render "comments/comment" %></div>
@@ -101,7 +101,7 @@
 	<div id="showFormComment" class="modal">
 			<div class="modal-content">
 				<div style="text-align: center;">
-					<h4 style="text-align: center;">Mostre sua solução!</h4>
+					<h4 style="text-align: center;"><%= t('posts.index.modal_title') %></h4>
 					<% if student_signed_in? || school_signed_in? %>
 						<%= render "comments/form" %>
 					<% end %>
@@ -114,11 +114,11 @@
 
 <% if student_signed_in? && @post.student_id == current_student.id %>
 	<p>
-		<%= link_to "Editar post", edit_post_path(@post) %>
+		<%= link_to t('posts.index.edit_post'), edit_post_path(@post) %>
 	</p>
 
 	<p>
-		<%= link_to 'Apagar post', post_path, :method => :delete, data: { confirm: "Tem certeza que quer deletar este post?" } %>
+		<%= link_to t('posts.index.delete_post'), post_path, :method => :delete, data: { confirm: t('posts.index.confirm_delete') } %>
 	</p>
 
 <% end %>

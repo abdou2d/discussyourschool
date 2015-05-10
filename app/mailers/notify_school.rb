@@ -6,7 +6,7 @@ class NotifySchool < ActionMailer::Base
 		mail({
 			:to => email_school,
 			:bcc => ['Notify school <contato@discussyourschool.com'],
-			:subject => "Cadastre-se no DiscussYourSchool!"
+			:subject => I18n.t('email.notify_school.subject')
 		})
 	end
 

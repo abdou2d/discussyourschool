@@ -4,10 +4,10 @@
             <%= form_tag password_reset_schools_path, :method => :post do %>
                 <div>
                     <%= label_tag :email %>
-                    <%= text_field_tag :email, params[:email], placeholder: "Reset your password!" %>
+                    <%= text_field_tag :email, params[:email], placeholder: t('password_reset_schools.new.placeholder') %>
                 </div>
 
-                <div><%= submit_tag "Reset Password", class: "btn btn-large blue darken-1" %></div>
+                <div><%= submit_tag t('helpers.submit.password_reset_schools_new'), class: "btn btn-large blue darken-1" %></div>
             <% end %>
         </div>
     </div>

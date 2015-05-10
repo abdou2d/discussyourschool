@@ -9,12 +9,12 @@
     <% if student_signed_in? %>
     	<div class="row">
             <%= f.check_box :anonymous, id: "anemona" %>
-    		<%= f.label "Caso queira, divulgue sua solução anonimamente! :D", {}, {:for => "anemona"} %>
+    		<%= f.label t('comments.form.label_anonymous'), {}, {:for => "anemona"} %>
     	</div>
     <% end %>
 
     <div class="row">
-		<%= f.submit "Criar solução", class: "btn btn-large blue darken-3" %>
+		<%= f.submit class: "btn btn-large blue darken-3" %>
 	</div>
 
 <% end %>
