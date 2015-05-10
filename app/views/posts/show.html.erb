@@ -45,7 +45,7 @@
 							<% end %>
 
 							<% if student_signed_in? && @post.student_id == current_student.id %>
-								<a class='dropdown-button btn red' href='#' data-activates='options-post'><i class="mdi-action-settings"></i></a>
+								<a class='dropdown-button btn red' data-activates='options-post'><i class="mdi-action-settings"></i></a>
 							<% end %>
 
 						</div>
@@ -78,7 +78,7 @@
 			<% if @post.comments.count == 1 %>
 			<ul class="collection">
 				<div class="numero-comentarios">
-					<li class="collection-header"><h2 style="font-size: 2.5em; text-align: center;"><%= t('posts.ahow.one_solution') %></h2></li>
+					<li class="collection-header"><h2 style="font-size: 2.5em; text-align: center;"><%= t('posts.show.one_solution') %></h2></li>
 				</div>
 				<li class="divider"></li>
 				<div class="comentario"><%= render "comments/comment" %></div>

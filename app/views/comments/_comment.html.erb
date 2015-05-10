@@ -26,9 +26,9 @@
 
             <% if school_signed_in? && current_school.name == @post.school_name %>
                 <% if current_school.liked? comment %>
-                    <%= link_to content_tag(:i, "", :class => "medium mdi-action-thumb-up circle blue darken-4"), unlike_post_comment_path(@post.id, comment), method: :put, :onclick => "Materialize.toast('Unliked', 800, 'rounded')" %>
+                    <%= link_to content_tag(:i, "", :class => "medium mdi-action-thumb-up circle blue-grey darken-4"), unlike_post_comment_path(@post.id, comment), method: :put, :onclick => "Materialize.toast('Unliked', 800, 'rounded')" %>
                 <% else %>
-                    <%= link_to content_tag(:i, "", :class => "medium mdi-action-thumb-up circle blue-grey darken-4"), like_post_comment_path(@post.id, comment), method: :put, :onclick => "Materialize.toast('Liked', 800, 'rounded')" %>
+                    <%= link_to content_tag(:i, "", :class => "medium mdi-action-thumb-up circle blue darken-4"), like_post_comment_path(@post.id, comment), method: :put, :onclick => "Materialize.toast('Liked', 800, 'rounded')" %>
                 <% end %>
             <% end %>
 
@@ -48,7 +48,7 @@
                 <% end %>
 
                 <br>
-                <%= time_ago_in_words(comment.created_at) %>
+                <%= time_ago_in_words(comment.created_at) %> <%= t('comments.time_ago') %>
                 <br>
                 <%= comment.get_upvotes.size %> <%= t('comments.how_many_votes_text') %>
                 <br>

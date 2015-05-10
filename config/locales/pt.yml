@@ -46,6 +46,7 @@ pt:
       zero_solutions: "Nenhuma solução"
       one_solution: "Uma solução"
       solutions: "soluções"
+      time_ago: "atrás"
     show:
       zero_likes: "Ninguém apoia ainda"
       one_like: "Uma pessoa apoia"
@@ -68,7 +69,15 @@ pt:
     new:
       first_line: "Cadastro da escola"
     show:
-      first_line: "Escola:"
+      data: "Dados do colégio"
+      students_count: "Quantidade de alunos:"
+      approve: "Aprovam o colégio: "
+      want_more_compromise: "Querem mais empenho da escola na resolução de problemas:"
+      think_about_college: "O que você acha do seu colégio?"
+      changed_opinion_one: "Mudei de opinião! :("
+      changed_opinion_two: "Mudei de opinião! :D"
+      good: "Bom! Resolve os problemas!"
+      bad: "Não resolve muitos problemas :/"
       edit_school_link: "Editar perfil da escola"
 
   students:
@@ -159,9 +168,10 @@ pt:
       label_anonymous: "Caso queira, deixe a solução como anônimo"
     delete_link: "Deletar"
     confirm_delete: "Têm certeza que deseja deletar essa discussão?"
-    how_many_votes_text: "Pesoas gostaram dessa solução"
+    how_many_votes_text: "Pessoa(s) gostaram dessa solução"
     voted_by_school_best_solution: "Votado como a melhor solução pela escola!"
     anonymous: "Anônimo"
+    time_ago: "atrás"
 
   home:
     index:

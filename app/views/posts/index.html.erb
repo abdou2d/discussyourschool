@@ -22,7 +22,7 @@
 					<% else %>
 						<%= post.student.name %>
 					<% end %><br>
-	         			<%= time_ago_in_words(post.created_at) %>
+	         			<%= time_ago_in_words(post.created_at) %> <%= t('posts.index.time_ago') %>
 	      			</p>
 					<p class="secondary-content">
 						<% if post.get_upvotes.size == 0 %>

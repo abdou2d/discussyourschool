@@ -7,7 +7,7 @@ pt:
     - Qua
     - Qui
     - Sex
-    - SÃ¡b
+    - Sáb
     abbr_month_names:
     -
     - Jan
@@ -25,11 +25,11 @@ pt:
     day_names:
     - Domingo
     - Segunda
-    - TerÃ§a
+    - Terça
     - Quarta
     - Quinta
     - Sexta
-    - SÃ¡bado
+    - Sábado
     formats:
       default: ! '%d/%m/%Y'
       long: ! '%d de %B de %Y'
@@ -38,7 +38,7 @@ pt:
     -
     - Janeiro
     - Fevereiro
-    - MarÃ§o
+    - Março
     - Abril
     - Maio
     - Junho
@@ -58,7 +58,7 @@ pt:
         one: aproximadamente 1 hora
         other: aproximadamente %{count} horas
       about_x_months:
-        one: aproximadamente 1 mÃªs
+        one: aproximadamente 1 mês
         other: aproximadamente %{count} meses
       about_x_years:
         one: aproximadamente 1 ano
@@ -83,7 +83,7 @@ pt:
         one: 1 minuto
         other: ! '%{count} minutos'
       x_months:
-        one: 1 mÃªs
+        one: 1 mês
         other: ! '%{count} meses'
       x_seconds:
         one: 1 segundo
@@ -92,42 +92,42 @@ pt:
       day: Dia
       hour: Hora
       minute: Minuto
-      month: MÃªs
+      month: Mês
       second: Segundo
       year: Ano
   errors: &errors
     format: ! '%{attribute} %{message}'
     messages:
       accepted: deve ser aceito
-      blank: nÃ£o pode ficar em branco
+      blank: não pode ficar em branco
       present: deve ficar em branco
-      confirmation: nÃ£o Ã© igual a %{attribute}
-      empty: nÃ£o pode ficar vazio
+      confirmation: não é igual a %{attribute}
+      empty: não pode ficar vazio
       equal_to: deve ser igual a %{count}
       even: deve ser par
-      exclusion: nÃ£o estÃ¡ disponÃ­vel
+      exclusion: não está disponível
       greater_than: deve ser maior que %{count}
       greater_than_or_equal_to: deve ser maior ou igual a %{count}
-      inclusion: nÃ£o estÃ¡ incluÃ­do na lista
-      invalid: nÃ£o Ã© vÃ¡lido
+      inclusion: não está incluído na lista
+      invalid: não é válido
       less_than: deve ser menor que %{count}
       less_than_or_equal_to: deve ser menor ou igual a %{count}
-      not_a_number: nÃ£o Ã© um nÃºmero
-      not_an_integer: nÃ£o Ã© um nÃºmero inteiro
-      odd: deve ser Ã­mpar
-      record_invalid: ! 'A validaÃ§Ã£o falhou: %{errors}'
+      not_a_number: não é um número
+      not_an_integer: não é um número inteiro
+      odd: deve ser ímpar
+      record_invalid: ! 'A validação falhou: %{errors}'
       restrict_dependent_destroy:
-        one: "NÃ£o Ã© possÃ­vel excluir o registro pois existe um %{record} dependente"
-        many: "NÃ£o Ã© possÃ­vel excluir o registro pois existem %{record} dependentes"
-      taken: jÃ¡ estÃ¡ em uso
-      too_long: ! 'Ã© muito longo (mÃ¡ximo: %{count} caracteres)'
-      too_short: ! 'Ã© muito curto (mÃ­nimo: %{count} caracteres)'
-      wrong_length: nÃ£o possui o tamanho esperado (%{count} caracteres)
+        one: "Não é possível excluir o registro pois existe um %{record} dependente"
+        many: "Não é possível excluir o registro pois existem %{record} dependentes"
+      taken: já está em uso
+      too_long: ! 'é muito longo (máximo: %{count} caracteres)'
+      too_short: ! 'é muito curto (mínimo: %{count} caracteres)'
+      wrong_length: não possui o tamanho esperado (%{count} caracteres)
     template:
       body: ! 'Por favor, verifique o(s) seguinte(s) campo(s):'
       header:
-        one: ! 'NÃ£o foi possÃ­vel gravar %{model}: 1 erro'
-        other: ! 'NÃ£o foi possÃ­vel gravar %{model}: %{count} erros.'
+        one: ! 'Não foi possível gravar %{model}: 1 erro'
+        other: ! 'Não foi possível gravar %{model}: %{count} erros.'
   helpers:
     select:
       prompt: Por favor selecione
@@ -156,18 +156,18 @@ pt:
         format: ! '%n %u'
         units:
           billion:
-            one: bilhÃ£o
-            other: bilhÃµes
+            one: bilhão
+            other: bilhões
           million:
-            one: milhÃ£o
-            other: milhÃµes
+            one: milhão
+            other: milhões
           quadrillion:
-            one: quatrilhÃ£o
-            other: quatrilhÃµes
+            one: quatrilhão
+            other: quatrilhões
           thousand: mil
           trillion:
-            one: trilhÃ£o
-            other: trilhÃµes
+            one: trilhão
+            other: trilhões
           unit: ''
       format:
         delimiter: .
