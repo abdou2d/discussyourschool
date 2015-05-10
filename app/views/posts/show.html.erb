@@ -37,12 +37,17 @@
 							<strong>
 						</div>
 					<% else %>
-						<div class="col s3 right" style="margin-top: 1%; margin-right: -3%;">
+						<div class="col s4 right" style="margin-top: 1%; margin-right: -3%;">
 							<% if @post.close_post != '1' %>
 								<%= link_to t('posts.show.solution_founded'), close_post_path(@post), method: :put, class: "btn waves-effect waves-light" %>
 							<% else %>
 								<%= link_to t('posts.show.reopen_problem'), reopen_post_path(@post), method: :put, class: "btn orange darken-2 waves-effect waves-light" %>
 							<% end %>
+
+							<% if student_signed_in? && @post.student_id == current_student.id %>
+								<a class='dropdown-button btn red' href='#' data-activates='options-post'><i class="mdi-action-settings"></i></a>
+							<% end %>
+
 						</div>
 					<% end %>
 				<% end %>
@@ -54,7 +59,7 @@
 					<% if @post.anonymous == '1' %>
 						<%= t('posts.show.anonymous') %>
 					<% else %>
-						<%= link_to t('posts.index.author', author: @post.user.name) %>
+						<%= link_to t('posts.show.author', author: @post.student.name) %>
 					<% end %>
             	</div>
 			</div>
@@ -92,9 +97,9 @@
 
 </div>
 
-<% if @post.close_post == '0' %>
+<% if @post.close_post != '1' %>
 	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-	    <a class="btn-floating btn-large blue cyan darken-2 modal-trigger" href="#showFormComment">
+	    <a class="btn-floating btn-large blue waves-effect waves-light cyan darken-4 modal-trigger" href="#showFormComment">
 	      <label class="large mdi-editor-mode-edit"></i>
 		</a>
 	</div>
@@ -110,15 +115,10 @@
 	</div>
 <% end %>
 
-
-
 <% if student_signed_in? && @post.student_id == current_student.id %>
-	<p>
-		<%= link_to t('posts.index.edit_post'), edit_post_path(@post) %>
-	</p>
-
-	<p>
-		<%= link_to t('posts.index.delete_post'), post_path, :method => :delete, data: { confirm: t('posts.index.confirm_delete') } %>
-	</p>
-
+	<ul id='options-post' class='dropdown-content'>
+		<li><%= link_to t('posts.show.edit_post'), edit_post_path(@post) %></li>
+		<li class="divider"></li>
+		<li><%= link_to t('posts.show.delete_post'), post_path(@post), :method => :delete, data: { confirm: t('posts.show.confirm_delete') } %></li>
+	</ul>
 <% end %>

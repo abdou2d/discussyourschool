@@ -21,7 +21,7 @@ pt:
         phone: Telefone
         password: Senha
         password_confirmation: Confirme sua senha
-      post: 
+      post:
         title: Título
         content: Conteúdo
         anonymous: "Anônimo"
@@ -70,7 +70,7 @@ pt:
     show:
       first_line: "Escola:"
       edit_school_link: "Editar perfil da escola"
-  
+
   students:
     edit:
       first_line: "Edite seu perfil"
@@ -175,15 +175,15 @@ pt:
       second_big_text: "Ninguém acha a solução de um problema sozinho. Fale sobre o problema e discuta ele com o pessoal da sua escola. Gostou de alguma solução? Vote nela!"
       improve_relation_with_school: "Melhore sua relação com a escola"
       third_big_text: "Não é mais preciso ter vergonha ao relatar um problema da escola para o diretor. Fale sobre o problema anônimamente e vá aos poucos melhorando essa relação até conseguir sair do anônimato"
-      about_who_made: "Sobre quem fez" 
-      fourth_big_text: "Somos dois estudantes participantes da Google Science Fair e queremos melhorar a educação brasileira por meio de projetos que estimulem os alunos a também quererem mudar."   
+      about_who_made: "Sobre quem fez"
+      fourth_big_text: "Somos dois estudantes participantes da Google Science Fair e queremos melhorar a educação brasileira por meio de projetos que estimulem os alunos a também quererem mudar."
       the_project: "O projeto"
       site_at_GSF: "Site na GSF"
       source_code: "Código fonte"
       made_by: "Feito por"
       and: "e"
       to_science_fair: "para a Google Science Fair"
-  
+
   notify_schools:
     new:
       placeholder: "Notifique sua escola sobre esse projeto!"
@@ -195,7 +195,7 @@ pt:
       form_invalid: "O formulário está inválido!"
       placeholder_password: "Digite sua senha"
       placeholder_password_confirmation: "Confirme sua senha"
-  
+
   password_reset_students:
     new:
       placeholder: "Email para encaminhar instruções de reset"
@@ -216,8 +216,8 @@ pt:
       my_account: "Minha conta"
       logout: Sair
     navbar_student:
-      new_post: "Novo post"
-  
+      new_post: "Divulgar problema"
+
   helpers:
     submit:
       notify_schools: "Enviar email para escola!"
@@ -238,4 +238,3 @@ pt:
     errors:
       messages:
         invalid_login: Email ou senha inválidos!
-

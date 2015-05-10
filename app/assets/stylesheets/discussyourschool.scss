@@ -270,3 +270,33 @@
 .icon-block {
   padding: 0 20px;
 }
+
+.school-profile {
+    text-align: center;
+
+    .data {
+        width: 50%;
+
+        margin-left: 25%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+
+        padding: 1%;
+
+        h2 {
+            font-size: 1.5em;
+            display: inline;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            display: inline;
+        }
+    }
+
+    .options {
+        position: absolute;
+        top: 12%;
+        right: 1.5%;
+    }
+}

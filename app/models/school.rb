@@ -4,6 +4,8 @@ class School < ActiveRecord::Base
 
     acts_as_voter
 
+    acts_as_votable
+
     has_many :comments, dependent: :destroy
 
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

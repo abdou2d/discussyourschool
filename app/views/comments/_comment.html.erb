@@ -31,7 +31,7 @@
                     <%= link_to content_tag(:i, "", :class => "medium mdi-action-thumb-up circle blue-grey darken-4"), like_post_comment_path(@post.id, comment), method: :put, :onclick => "Materialize.toast('Liked', 800, 'rounded')" %>
                 <% end %>
             <% end %>
-    
+
 
             <span class="title" style="font-size: 1.1em;"><b><%= comment.content %></b></span>
 
@@ -48,7 +48,7 @@
                 <% end %>
 
                 <br>
-                <%= time_ago_in_words(comment.created_at) %> 
+                <%= time_ago_in_words(comment.created_at) %>
                 <br>
                 <%= comment.get_upvotes.size %> <%= t('comments.how_many_votes_text') %>
                 <br>

@@ -3,7 +3,15 @@ Rails.application.routes.draw do
     scope "(:locale)", locale: /en|pt/ do
         get 'password_resets/new'
 
-        resources :schools
+        resources :schools do
+            member do
+                put "like", to: "schools#like"
+                put "unlike", to: "schools#unlike"
+                put "dislike", to: "schools#dislike"
+                put "undislike", to: "schools#undislike"
+            end
+        end
+
         resources :password_reset_students
         resources :password_reset_schools
 

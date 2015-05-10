@@ -1,13 +1,44 @@
-<h2><%= t('schools.show.first_line') %> <%= @school.name %></h2>
+<div class="container">
+    <h2 class="light" style="font-size: 3em; text-align: center"><%= @school.name %></h2>
 
-<<<<<<< HEAD
+    <ul class="collection with-header">
+        <li class="collection-header"><h4 style="text-align: center;">Dados do colégio</h4></li>
+        <a class="collection-item" style="font-size: 1.2em;">Quantidade de alunos: <span class="badge" style="font-size: 1.1em;"><%= @students.count %></span></a>
+        <a class="collection-item" style="font-size: 1.2em;">Aprovam o colégio: <span class="badge" style="font-size: 1.1em;"><%= @school.get_likes.size %></span></a>
+        <a class="collection-item" style="font-size: 1.2em;">Querem mais empenho da escola na resolução de problemas: <span class="badge" style="font-size: 1.1em;"><%= @school.get_dislikes.size %></span></a>
+    </ul>
+
+    <div class="row">
+        <div class="col s12" style="text-align: center; margin-top: 1.5%;">
+            <% if student_signed_in? && current_student.school_name == @school.name %>
+                <strong>
+                    <p style="font-size: 1.5em;">
+                        O que você acha do seu colégio?
+                    </p>
+                </strong>
+                <% if current_student.liked? @school %>
+                    <%= link_to "Mudei de opinião! :(", unlike_school_path(@school.id), method: :put, :onclick => "Materialize.toast('Unliked', 800)", class: "waves-effect waves-light btn orange" %>
+                <% elsif current_student.disliked? @school %>
+                    <%= link_to "Mudei de opinião! :D", undislike_school_path(@school.id), method: :put, :onclick => "Materialize.toast('Undisliked', 800)", class: "waves-effect waves-light btn orange" %>
+                <% else %>
+                    <%= link_to "Bom! Resolve os problemas!", like_school_path(@school.id), method: :put, :onclick => "Materialize.toast('Liked', 800)", class: "waves-effect waves-light btn green" %>
+                    <%= link_to "Não resolve muitos problemas :/", dislike_school_path(@school.id), method: :put, :onclick => "Materialize.toast('Disliked', 800)", class: "waves-effect waves-light btn red" %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+
+</div>
+
+
 <% if school_signed_in? && current_school == @school %>
     <p>
         <%= link_to 'Editar perfil da escola', edit_school_path(@school) %>
     </p>
 <% end %>
-=======
-<p>
-    <%= link_to t('schools.show.edit_school_link'), edit_school_path(@school) %>
-</p>
->>>>>>> d2d9a54cbe1dca2f12c27a0d974e2f6fba2b329b
+
+<% if school_signed_in? && current_school == @school %>
+    <p>
+        <%= link_to t('schools.show.edit_school_link'), edit_school_path(@school) %>
+    </p>
+<% end %>

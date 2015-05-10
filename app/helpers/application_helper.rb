@@ -20,4 +20,9 @@ module ApplicationHelper
             ["Sexto ano", "sexto"],
         ]
     end
+
+    def student_school_name
+        @student_school_name = School.find_by(name: current_student.school_name)
+        @student_school_name.slug
+    end
 end

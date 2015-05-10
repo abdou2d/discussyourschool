@@ -5,6 +5,8 @@ class SchoolsController < ApplicationController
 
     def show
         @school = School.friendly.find(params[:id])
+
+        @students = Student.where(school_name: @school.name)
     end
 
     def new
@@ -36,21 +38,38 @@ class SchoolsController < ApplicationController
         end
     end
 
+    def like
+		@school = School.find(params[:id])
+		@school.liked_by current_student
+  		redirect_to @school
+	end
+
+	def unlike
+  		@school = School.find(params[:id])
+  		@school.unliked_by current_student
+
+  		redirect_to @school
+	end
+
+    def dislike
+        @school = School.find(params[:id])
+        @school.disliked_by current_student
+        redirect_to @school
+    end
+
+    def undislike
+        @school = School.find(params[:id])
+        @school.undisliked_by current_student
+
+        redirect_to @school
+    end
+
     private
 
     def school_params
         params.require(:school).permit(:name, :email, :mec_code, :phone, :password, :password_confirmation)
     end
 
-<<<<<<< HEAD
-=======
-    def can_see_show
-        unless school_signed_in? && current_school == school
-            redirect_to root_path,alert: t('flash.alert.access_denied')
-        end
-    end
-
->>>>>>> d2d9a54cbe1dca2f12c27a0d974e2f6fba2b329b
     def school
         @school ||= School.friendly.find(params[:id])
     end
