@@ -23,6 +23,18 @@
 									</a>
 								<% end %>
 							</div>
+
+							<strong>
+								<span style="position: absolute; font-size: 0.8em; top: 39%;">
+									<% if @post.get_upvotes.size == 0 %>
+									 	Ninguém apoia. Ainda
+									<% elsif @post.get_upvotes.size == 1 %>
+										Um apoia
+									<% else %>
+										<%= @post.get_upvotes.size %> apoiam
+									<% end %>
+								</span>
+							<strong>
 						</div>
 					<% else %>
 						<div class="col s3 right" style="margin-top: 1%; margin-right: -3%;">
@@ -99,11 +111,6 @@
 <% end %>
 
 
-
-
-<p>
-	<%= @post.get_upvotes.size %> Pessoas gostaram deste post
-</p>
 
 <% if student_signed_in? && @post.student_id == current_student.id %>
 	<p>

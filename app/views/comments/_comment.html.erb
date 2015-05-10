@@ -12,7 +12,6 @@
                     <% else %>
                         <%= link_to content_tag(:i, "", :class => "medium mdi-action-thumb-up circle blue-grey darken-4"), like_post_comment_path(@post.id, comment), method: :put, :onclick => "Materialize.toast('Liked', 800, 'rounded')" %>
                     <% end %>
-
                 <% else %>
                     <% if current_student.liked? comment %>
                         <a onclick="Materialize.toast('Solução já encontrada!', 1200)">
@@ -24,9 +23,16 @@
                         </a>
                     <% end %>
                 <% end %>
-
-
             <% end %>
+
+            <% if school_signed_in? && current_school.name == @post.school_name %>
+                <% if current_school.liked? comment %>
+                    <%= link_to content_tag(:i, "", :class => "medium mdi-action-thumb-up circle blue darken-4"), unlike_post_comment_path(@post.id, comment), method: :put, :onclick => "Materialize.toast('Unliked', 800, 'rounded')" %>
+                <% else %>
+                    <%= link_to content_tag(:i, "", :class => "medium mdi-action-thumb-up circle blue-grey darken-4"), like_post_comment_path(@post.id, comment), method: :put, :onclick => "Materialize.toast('Liked', 800, 'rounded')" %>
+                <% end %>
+            <% end %>
+    
 
             <span class="title" style="font-size: 1.1em;"><b><%= comment.content %></b></span>
 
@@ -47,18 +53,10 @@
                 <br>
                 <%= comment.get_upvotes.size %> Pessoas gostaram desta solução
                 <br>
-                <% if @school.liked? comment %>
-                    <b>Votado como melhor solução pela escola!</b>
-                <% end %>
 
-                <% if school_signed_in? && current_school.name == @post.school_name %>
-                    <% if current_school.liked? comment %>
-                        <%= link_to content_tag(:i, "", :class => "medium mdi-action-thumb-up circle blue darken-4"), unlike_post_comment_path(@post.id, comment), method: :put, :onclick => "Materialize.toast('Unliked', 800, 'rounded')" %>
-                    <% else %>
-                        <%= link_to content_tag(:i, "", :class => "medium mdi-action-thumb-up circle blue-grey darken-4"), like_post_comment_path(@post.id, comment), method: :put, :onclick => "Materialize.toast('Liked', 800, 'rounded')" %>
-                    <% end %>
+                <% if @school.liked? comment %>
+                    <strong>Votado como melhor solução pela escola!</strong>
                 <% end %>
-            </p>
 
             <% if (student_signed_in? && comment.student == current_student) || (school_signed_in? && comment.school == current_school) %>
                 <p class="secondary-content">

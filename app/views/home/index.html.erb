@@ -1,0 +1,107 @@
+
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <br><br>
+
+        <h1 class="header center blue-text">Discuss Your School</h1>
+
+        <div class="row center">
+            <h5 class="header col s12 light">Faça da sua escola um lugar melhor</h5>
+        </div>
+
+        <div class="row center">
+            <% if student_signed_in? || school_signed_in? %>
+                <%= link_to "Solucionar problemas da minha escola", posts_path, class: "btn-large waves-effect waves-light blue" %>
+            <% else %>
+                <a href="#" class="btn-large dropdown-button waves-effect waves-light blue darken-2" data-activates='signup'>Cadastre-se</a>
+                <a href="#" class="btn-large dropdown-button waves-effect waves-light blue" data-activates='login'>Login</a>
+
+            <% end %>
+        </div>
+
+      <br><br>
+
+    </div>
+ </div>
+
+
+<div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+          <div class="col s12 m4">
+              <div class="icon-block">
+                  <h2 class="center blue-text text-darken-2"><i class="mdi-action-account-balance"></i></h2>
+                  <h5 class="center">Melhore o ambiente escolar</h5>
+
+                  <p class="light">
+                      Nada melhor do que saber os problemas escolares
+                      por meio dos alunos. Como escola, escolha as melhores
+                      soluções e se comprometa a botá-las em prática.
+                      Como estudante, mostre o que te incomoda
+                      para os funcionários da escola.
+                  </p>
+              </div>
+          </div>
+
+          <div class="col s12 m4">
+              <div class="icon-block">
+                  <h2 class="center blue-text text-darken-2"><i class="mdi-social-group"></i></h2>
+                  <h5 class="center">Resolva em grupo</h5>
+
+                  <p class="light">
+                      Ninguém acha a solução de um problema sozinho.
+                      Fale sobre o problema e discuta ele com o pessoal
+                      da sua escola. Gostou de alguma solução? Vote nela!
+                  </p>
+              </div>
+          </div>
+
+          <div class="col s12 m4">
+              <div class="icon-block">
+                  <h2 class="center blue-text text-darken-2"><i class="mdi-action-favorite"></i></h2>
+                  <h5 class="center">Melhore sua relação com a escola</h5>
+
+                  <p class="light">
+                      Não é mais preciso ter vergonha
+                      ao relatar um problema da escola
+                      para o diretor. Fale sobre o problema
+                      anonimamente e vá aos poucos melhorando
+                      essa relação até conseguir sair do anonimato :D
+                  </p>
+              </div>
+          </div>
+      </div>
+    </div>
+    <br><br>
+</div>
+
+<footer class="page-footer blue">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Sobre quem fez</h5>
+                <p class="grey-text text-lighten-4">
+                    Somos dois estudantes participantes da Google Science Fair
+                    e queremos melhorar a educação brasileira por meio de projetos
+                    que estimulem os alunos a também quererem mudar.
+                </p>
+            </div>
+
+            <div class="col l3 s12">
+                <h5 class="white-text">O projeto</h5>
+                <ul>
+                    <li><a class="white-text" href="https://github.com/DiscussYourSchool/discussyourschool">Site na GSF</a></li>
+                    <li><a class="white-text" href="https://github.com/DiscussYourSchool/discussyourschool">Código fonte</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-copyright">
+        <div class="container">
+          Feito por <b>Leonardo</b> e <b>Thor</b> para a Google Science Fair
+        </div>
+    </div>
+</footer>
