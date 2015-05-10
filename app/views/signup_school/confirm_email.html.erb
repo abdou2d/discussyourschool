@@ -1,11 +1,9 @@
-<h1>Olá, <%= @school.name %></h1>
-
-<h2>Por favor, confirme o cadastro da escola.</h2>
+<h1><%= t('email.confirm_signup_school.first_line') %>, <%= @school.name %></h1>
 
 <p>
-    Para confirmar o cadastro, <%= link_to "clique aqui", @confirmation_link %>
+    <%= t 'email.confirm_signup_school.confirm_link_html', link: link_to(t('email.confirm_signup_school.click_here'), @confirmation_link %>
 </p>
 
 <p>
-    Obrigado! O <%= link_to "DiscussYourCity", root_url %> espera ser útil no melhoramento do seu colégio!
+    <%= t('email.confirm_signup_school.third_line_part_one') %> <%= link_to "DiscussYourCity", root_url %> <%= t('email.confirm_signup_school.third_line_part_two') %>
 </p>

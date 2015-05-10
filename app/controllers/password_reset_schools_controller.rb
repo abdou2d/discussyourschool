@@ -7,7 +7,7 @@ class PasswordResetSchoolsController < ApplicationController
         school = School.find_by(email: params[:email])
         school.send_password_reset if school
 
-        redirect_to root_url, :notice => "Email sent with password reset instructions."
+        redirect_to root_url, :notice => t('flash.notice.reset_password_email_sent')
     end
 
     def edit
@@ -18,9 +18,9 @@ class PasswordResetSchoolsController < ApplicationController
         @school = School.find_by(password_reset_token: params[:id])
 
         if @school.password_reset_sent_at < 3.hours.ago
-            redirect_to new_password_reset_path, :alert => "Password reset has expired."
+            redirect_to new_password_reset_path, :alert => t('flash.alert.reset_password_expired')
         elsif @school.update(password_reset_school_params)
-            redirect_to root_url, :notice => "Password has been reset!"
+            redirect_to root_url, :notice => t('flash.notice.password_was_reseted')
         else
             render :edit
         end

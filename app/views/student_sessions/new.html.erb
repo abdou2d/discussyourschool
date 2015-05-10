@@ -1,6 +1,7 @@
 <div class="login-aluno container">
-    <h2>Login do aluno</h2>
-    <span>Esqueceu sua senha? <%= link_to "Clique aqui!", new_password_reset_student_path %></span>
+    <h2><%= t('student_session.first_line') %></h2>
+    <span><%= t('student_session.second_line_first_part') %> <%= link_to t('student_session.click_here'), new_password_reset_school_path %>
+    </span>
 
     <% if @student_session.errors.has_key? :base %>
         <div class="error">
@@ -27,7 +28,7 @@
             </div>
 
             <div class="row">
-                <%= f.submit "Entrar!", class: "btn btn-large blue" %>
+                <%= f.submit t('helpers.submit.session'), class: "btn btn-large blue" %>
             </div>
         <% end %>
     </div>

@@ -11,7 +11,7 @@ class SchoolSessionsController < ApplicationController
         @school_session = SchoolSession.new(session, params[:school_session])
 
         if @school_session.authenticate!
-            redirect_to root_path, notice: "Login feito!"
+            redirect_to root_path, notice: t('flash.notice.login_was_made')
         else
             render :new
         end
@@ -19,7 +19,7 @@ class SchoolSessionsController < ApplicationController
 
     def destroy
         school_session.destroy
-        redirect_to root_path, notice: "Logout feito com sucesso!"
+        redirect_to root_path, notice: t('flash.notice.logout_was_made')
     end
 
 end

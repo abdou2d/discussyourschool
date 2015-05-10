@@ -1,0 +1,241 @@
+pt:
+  activerecord:
+    models:
+      student: Estudante
+      school: Escola
+      post: Post
+      comment: Comentário
+    attributes:
+      student:
+        name: Nome
+        email: Email
+        birthday: Aniversário
+        school_name: Nome da Escola
+        password: Senha
+        password_confirmation: Confirme sua senha
+        grade: Série
+      school:
+        name: Nome
+        email: Email
+        mec_code: Código MEC
+        phone: Telefone
+        password: Senha
+        password_confirmation: Confirme sua senha
+      post: 
+        title: Título
+        content: Conteúdo
+        anonymous: "Anônimo"
+      comment:
+        content: Conteúdo
+
+  posts:
+    form:
+      anonymous_label: "Caso queira, poste anonimamente!"
+    edit:
+      first_line: "Edite o problema"
+    new:
+      first_line: "Descreva um problema da sua escola"
+    index:
+      no_posts: "Sem discussões de problemas e soluções até o momento"
+      first_line: "Problemas. Solucione-os!"
+      by: "Por:"
+      anonymous: "Anônimo"
+      zero_likes: "Ninguém curtiu"
+      one_like: "Uma pessoa curtiu"
+      liked: "curtiram"
+      zero_solutions: "Nenhuma solução"
+      one_solution: "Uma solução"
+      solutions: "soluções"
+    show:
+      zero_likes: "Ninguém apoia ainda"
+      one_like: "Uma pessoa apoia"
+      support: "apoiam"
+      solution_founded: "Solução encontrada!"
+      reopen_problem: "Reabrir problema"
+      anonymous: "Por anônimo"
+      author: "Por %{author}"
+      zero_solutions: "Nenhuma solução :("
+      one_solution: "Uma solução"
+      solutions: "soluções"
+      modal_title: "Mostre sua solução!"
+      edit_post: "Editar post"
+      delete_post: "Apagar post"
+      confirm_delete: "Têm certeza que quer deletar este post?"
+
+  schools:
+    edit:
+      first_line: "Editar seu perfil"
+    new:
+      first_line: "Cadastro da escola"
+    show:
+      first_line: "Escola:"
+      edit_school_link: "Editar perfil da escola"
+  
+  students:
+    edit:
+      first_line: "Edite seu perfil"
+    new:
+      first_line: Se cadastre estudante!
+      second_line: "Não achou sua escola?"
+      click_here: "clique aqui!"
+    show:
+      from: "do"
+      edit_profile: "Editar perfil"
+      no_problems_shared: "Sem problemas divulgados"
+      problems_shared: "Problemas divulgados"
+      best_solutions: "Melhores soluções"
+
+
+  school_session:
+    first_line: "Login da escola"
+    second_line_first_part: "Esqueceu sua senha?"
+    click_here: "Clique aqui!"
+  student_session:
+    first_line: "Login do aluno"
+    second_line_first_part: "Esqueceu sua senha?"
+    click_here: "Clique aqui!"
+
+  flash:
+    alert:
+      student_must_be_logged: "Precisa estar logado como estudante!"
+      school_must_be_logged: "Precisa estar logado como escola!"
+      already_logged_student: "Já se encontra logado como estudante!"
+      already_logged_school: "Já se encontra logado como escola!"
+      error_create_comment: "Erro ao criar comentário!"
+      school_already_registered: "Escola já cadastrada!"
+      reset_password_expired: "Tentativa de reset foi expirada devido ao tempo de demora!"
+      access_denied: "Acesso negado!"
+    notice:
+      signup_confirmed_school: "Cadastro confirmado com sucesso! Agora se logue e incentive seus alunos a participarem!"
+      signup_confirmed_student: "Cadastro confirmado com sucesso! Bora mudar sua escola? Só falta logar!"
+      email_notification_school_sent: "O email foi enviado com sucesso para sua escola!"
+      reset_password_email_sent: "Email com instruções de reset foi enviado com sucesso!"
+      password_was_reseted: "Senha foi resetada!"
+      post_created_succesfully: "Post foi criado com sucesso!"
+      post_edited_succesfully: "Post editado com sucesso!"
+      login_was_made: "Login realizado com sucesso!"
+      logout_was_made: "Logout realizado com sucesso!"
+      check_email_signup: "Parabéns! Agora, é necessário confirmar o cadastro. Acesse seu email e confirme!"
+      school_edited_succesfully: "Perfil da escola editado com sucesso!"
+      student_edited_succesfully: "Perfil do estudante editado com sucesso!"
+
+  email:
+    notify_school:
+      subject: "Se cadastre no Discuss Your School!"
+      first_line: "Olá, tudo bom?"
+      second_line: "Um aluno do colégio de vocês está interessado em participar do DiscussYourSchool, uma plataforma online onde é possível receber sugestões para a resolução de problemas da escola"
+      third_line: "Vamos lá! Cadastre-se!"
+      click_here: "clique aqui"
+      confirm_link_html: "Para isso, %{link}!"
+    reset_password_school:
+      subject: "Redefina sua senha!"
+      first_line: "Seguem as instruções para resetar sua senha"
+      click_here: "clique aqui"
+      confirm_link_html: "Para resetar sua senha, %{link}"
+      third_line: "Se você não solicitou resetar sua senha, somente ignore esse email."
+    reset_password_student:
+      subject: "Redefina sua senha"
+      first_line: "Seguem as instruções para resetar sua senha"
+      click_here: "clique aqui"
+      confirm_link_html: "Para resetar sua senha, %{link}"
+      third_line: "Se você não solicitou resetar sua senha, somente ignore esse email."
+    confirm_signup_school:
+      subject: "Confirme seu cadastro escola!"
+      first_line: "Olá"
+      click_here: "clique aqui"
+      confirm_link_html: "Para confirmar o cadastro, %{link}"
+      third_line_part_one: "Obrigado! O"
+      third_line_part_two: "espera ser útil no melhoramento do seu colégio!"
+    confirm_signup_student:
+      subject: "Confirme seu cadastro estudante!"
+      first_line: "Olá"
+      click_here: "clique aqui"
+      confirm_link_html: "Para confirmar o cadastro, %{link}"
+      third_line_part_one: "Obrigado! O"
+      third_line_part_two: "espera ser útil no melhoramento do seu colégio!"
+
+  comments:
+    form:
+      label_anonymous: "Caso queira, deixe a solução como anônimo"
+    delete_link: "Deletar"
+    confirm_delete: "Têm certeza que deseja deletar essa discussão?"
+    how_many_votes_text: "Pesoas gostaram dessa solução"
+    voted_by_school_best_solution: "Votado como a melhor solução pela escola!"
+    anonymous: "Anônimo"
+
+  home:
+    index:
+      school_better_place: "Faça da sua escola um lugar melhor"
+      solve_school_problems: "Solucionar problemas da minha escola"
+      signup: "Cadastre-se"
+      login: "Login"
+      improve_school_environment: "Melhore o ambiente escolar"
+      first_big_text: "Nada melhor do que saber os problemas escolares por meio dos alunos. Como escola, escolha as melhores soluções e se comprometa a botá-las em prática. Como estudante, mostre o que te incomoda para os funcionários da escola."
+      solve_in_group: "Resolva em grupo"
+      second_big_text: "Ninguém acha a solução de um problema sozinho. Fale sobre o problema e discuta ele com o pessoal da sua escola. Gostou de alguma solução? Vote nela!"
+      improve_relation_with_school: "Melhore sua relação com a escola"
+      third_big_text: "Não é mais preciso ter vergonha ao relatar um problema da escola para o diretor. Fale sobre o problema anônimamente e vá aos poucos melhorando essa relação até conseguir sair do anônimato"
+      about_who_made: "Sobre quem fez" 
+      fourth_big_text: "Somos dois estudantes participantes da Google Science Fair e queremos melhorar a educação brasileira por meio de projetos que estimulem os alunos a também quererem mudar."   
+      the_project: "O projeto"
+      site_at_GSF: "Site na GSF"
+      source_code: "Código fonte"
+      made_by: "Feito por"
+      and: "e"
+      to_science_fair: "para a Google Science Fair"
+  
+  notify_schools:
+    new:
+      placeholder: "Notifique sua escola sobre esse projeto!"
+
+  password_reset_schools:
+    new:
+      placeholder: "Email para encaminhar instruções de reset"
+    edit:
+      form_invalid: "O formulário está inválido!"
+      placeholder_password: "Digite sua senha"
+      placeholder_password_confirmation: "Confirme sua senha"
+  
+  password_reset_students:
+    new:
+      placeholder: "Email para encaminhar instruções de reset"
+    edit:
+      form_invalid: "O formulário está inválido!"
+      placeholder_password: "Digite sua senha"
+      placeholder_password_confirmation: "Confirme sua senha"
+
+  layouts:
+    navbar_off:
+      like_school: "Como escola"
+      like_student: "Como aluno"
+      discuss_solve: "Discuta. Solucione"
+      login: Login
+      signup: Cadastro
+    navbar_school:
+      posts_at_school: "Posts na escola"
+      my_account: "Minha conta"
+      logout: Sair
+    navbar_student:
+      new_post: "Novo post"
+  
+  helpers:
+    submit:
+      notify_schools: "Enviar email para escola!"
+      password_reset_schools_new: "Enviar email com instruções de reset"
+      password_reset_schools_edit: "Resetar a senha"
+      password_reset_students_new: "Enviar email com instruções de reset"
+      password_reset_students_edit: "Resetar a senha"
+      session: "Entrar"
+
+  activemodel:
+    attributes:
+      school_session:
+        email: Email
+        password: Senha
+      student_session:
+        email: Email
+        password: Senha
+    errors:
+      messages:
+        invalid_login: Email ou senha inválidos!
+

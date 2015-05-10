@@ -1,4 +1,3 @@
-
 <% @comments.each do |comment| %>
     <div class="comment">
 
@@ -39,7 +38,7 @@
             <p>
                 Por:
                 <% if comment.anonymous == '1' %>
-                    <span>Anônimo</span>
+                    <span><%= t('comments.anonymous') %></span>
                 <% else %>
                     <% if comment.student_id %>
                         <span><%= link_to comment.student.name, comment.student %></span>
@@ -49,18 +48,18 @@
                 <% end %>
 
                 <br>
-                Há <%= time_ago_in_words(comment.created_at) %> atrás
+                <%= time_ago_in_words(comment.created_at) %> 
                 <br>
-                <%= comment.get_upvotes.size %> Pessoas gostaram desta solução
+                <%= comment.get_upvotes.size %> <%= t('comments.how_many_votes_text') %>
                 <br>
 
                 <% if @school.liked? comment %>
-                    <strong>Votado como melhor solução pela escola!</strong>
+                    <strong><%= t('comments.voted_by_school_best_solution') %></strong>
                 <% end %>
 
             <% if (student_signed_in? && comment.student == current_student) || (school_signed_in? && comment.school == current_school) %>
                 <p class="secondary-content">
-                    <%= link_to "Deletar", [comment.post, comment], method: :delete, data: {confirm: "Deseja excluir essa solução?"}, class: "btn red"%>
+                    <%= link_to t('comments.delete_link'), [comment.post, comment], method: :delete, data: {confirm: t('comments.confirm_delete')}, class: "btn red"%>
         	    </p>
             <% end %>
 

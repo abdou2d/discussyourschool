@@ -12,7 +12,7 @@ class SignupSchool < ActionMailer::Base
         mail({
             to: school.email,
             bcc: ['Sign up <signup@discussyourschool.com>'],
-            subject: "Confirme o cadastro da escola"
+            subject: I18n.t('email.confirm_signup_school.subject')
         })
     end
 

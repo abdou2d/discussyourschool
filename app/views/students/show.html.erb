@@ -2,12 +2,12 @@
 
     <div class="data">
         <h2><strong><%= @student.name %></strong></h2>
-        <h3>do <%= @student.school_name %></h3>
+        <h3><%= t('students.show.from') %> <%= @student.school_name %></h3>
     </div>
 
     <% if student_signed_in? && current_student == @student  %>
         <div class="options">
-            <%= link_to "Editar perfil", edit_student_path(@student), class: "waves-effect waves-light btn yellow darken-3" %>
+            <%= link_to t('students.show.edit_profile'), edit_student_path(@student), class: "waves-effect waves-light btn yellow darken-3" %>
         </div>
     <% end %>
 
@@ -16,10 +16,10 @@
             <div class="posts">
                 <ul class="collection with-header">
                     <li class="collection-header">
-                        <% if @posts_owner.count == 0 || @posts_visitor.count == 0 %>
-                            <h4>Sem problemas divulgados</h4>
+                        <% if @posts_owner.count == 0 || @posts_without_anonymous.count == 0 %>
+                            <h4><%= t('students.show.no_problems_shared') %></h4>
                         <% else %>
-                            <h4>Problemas divulgados</h4>
+                            <h4><%= t('students.show.problems_shared') %></h4>
                         <% end %>
                     </li>
 
@@ -28,7 +28,7 @@
                             <%= link_to post.title, post_path(post), class: "collection-item" %>
                         <% end %>
                     <% else %>
-                        <% @posts_visitor.each do |post| %>
+                        <% @posts_without_anonymous.each do |post| %>
                             <%= link_to post.title, post_path(post), class: "collection-item" %>
                         <% end %>
                     <% end %>
@@ -40,10 +40,16 @@
         <div class="col s6">
             <div class="best-solutions">
                 <ul class="collection with-header">
-                    <li class="collection-header"><h4>Melhores soluções</h4></li>
-                    <a href="#!" class="collection-item">Bebedouro estragado (anônimo. Só eu posso ver)</a>
-                    <a href="#!" class="collection-item">Carteira caída</a>
-                    <a href="#!" class="collection-item">Banheiro fedido</a>
+                    <li class="collection-header"><h4><%= t('students.show.best_solutions') %></h4></li>
+                    <% if student_signed_in? && current_student.id = @student.id %>
+                        <% @comments_with_more_likes.each do |comment| %>
+                            <li><%= truncate(comment.content, length: 15) %></li>
+                        <% end %>
+                    <% else %>
+                        <% @comments_with_more_likes_without_anonymous.each do |comment| %>
+                            <li><%= truncate(comment.content, length: 15) %></li>
+                        <% end %>
+                    <% end %>
                 </ul>
             </div>
         </div>

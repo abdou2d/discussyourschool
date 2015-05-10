@@ -5,9 +5,9 @@
 			<%= form_tag notify_school_path, :method => :post do %>
 				<div>
 			    	<%= label_tag :email %>
-			    	<%= text_field_tag :email, params[:email], placeholder: "Notifique sua escola sobre esse projeto!" %>
+			    	<%= text_field_tag :email, params[:email], placeholder: t('notify_schools.new.placeholder') %>
 	  			</div>
-	  			<div><%= submit_tag "Enviar email para escola!", class: "btn btn-large blue darken-1" %></div>
+	  			<div><%= submit_tag t('helpers.submit.notify_schools'), class: "btn btn-large blue darken-1" %></div>
 			<% end %>
 		</div>
 	</div>

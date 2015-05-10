@@ -1,4 +1,3 @@
-
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
@@ -6,16 +5,15 @@
         <h1 class="header center blue-text">Discuss Your School</h1>
 
         <div class="row center">
-            <h5 class="header col s12 light">Faça da sua escola um lugar melhor</h5>
+            <h5 class="header col s12 light"><%= t('home.index.school_better_place') %></h5>
         </div>
 
         <div class="row center">
             <% if student_signed_in? || school_signed_in? %>
-                <%= link_to "Solucionar problemas da minha escola", posts_path, class: "btn-large waves-effect waves-light blue" %>
+                <%= link_to t('home.index.solve_school_problems'), posts_path, class: "btn-large waves-effect waves-light blue" %>
             <% else %>
-                <a href="#" class="btn-large dropdown-button waves-effect waves-light blue darken-2" data-activates='signup'>Cadastre-se</a>
-                <a href="#" class="btn-large dropdown-button waves-effect waves-light blue" data-activates='login'>Login</a>
-
+                <a href="#" class="btn-large dropdown-button waves-effect waves-light blue darken-2" data-activates='signup'><%= t('home.index.signup') %></a>
+                <a href="#" class="btn-large dropdown-button waves-effect waves-light blue" data-activates='login'><%= t('home.index.login') %></a>
             <% end %>
         </div>
 
@@ -33,14 +31,10 @@
           <div class="col s12 m4">
               <div class="icon-block">
                   <h2 class="center blue-text text-darken-2"><i class="mdi-action-account-balance"></i></h2>
-                  <h5 class="center">Melhore o ambiente escolar</h5>
+                  <h5 class="center"><%= t('home.index.improve_school_environment') %></h5>
 
                   <p class="light">
-                      Nada melhor do que saber os problemas escolares
-                      por meio dos alunos. Como escola, escolha as melhores
-                      soluções e se comprometa a botá-las em prática.
-                      Como estudante, mostre o que te incomoda
-                      para os funcionários da escola.
+                      <%= t('home.index.first_big_text') %>
                   </p>
               </div>
           </div>
@@ -48,12 +42,10 @@
           <div class="col s12 m4">
               <div class="icon-block">
                   <h2 class="center blue-text text-darken-2"><i class="mdi-social-group"></i></h2>
-                  <h5 class="center">Resolva em grupo</h5>
+                  <h5 class="center"><%= t('home.index.solve_in_group') %></h5>
 
                   <p class="light">
-                      Ninguém acha a solução de um problema sozinho.
-                      Fale sobre o problema e discuta ele com o pessoal
-                      da sua escola. Gostou de alguma solução? Vote nela!
+                      <%= t('home.index.second_big_text') %>
                   </p>
               </div>
           </div>
@@ -61,14 +53,10 @@
           <div class="col s12 m4">
               <div class="icon-block">
                   <h2 class="center blue-text text-darken-2"><i class="mdi-action-favorite"></i></h2>
-                  <h5 class="center">Melhore sua relação com a escola</h5>
+                  <h5 class="center"><%= t('home.index.improve_relation_with_school') %></h5>
 
                   <p class="light">
-                      Não é mais preciso ter vergonha
-                      ao relatar um problema da escola
-                      para o diretor. Fale sobre o problema
-                      anonimamente e vá aos poucos melhorando
-                      essa relação até conseguir sair do anonimato :D
+                      <%= t('home.index.third_big_text') %>
                   </p>
               </div>
           </div>
@@ -81,19 +69,17 @@
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">Sobre quem fez</h5>
+                <h5 class="white-text"><%= t('home.index.about_who_made') %></h5>
                 <p class="grey-text text-lighten-4">
-                    Somos dois estudantes participantes da Google Science Fair
-                    e queremos melhorar a educação brasileira por meio de projetos
-                    que estimulem os alunos a também quererem mudar.
+                    <%= t('home.index.fourth_big_text') %>
                 </p>
             </div>
 
             <div class="col l3 s12">
-                <h5 class="white-text">O projeto</h5>
+                <h5 class="white-text"><%= t('home.index.the_project') %></h5>
                 <ul>
-                    <li><a class="white-text" href="https://github.com/DiscussYourSchool/discussyourschool">Site na GSF</a></li>
-                    <li><a class="white-text" href="https://github.com/DiscussYourSchool/discussyourschool">Código fonte</a></li>
+                    <li><a class="white-text" href="https://github.com/DiscussYourSchool/discussyourschool"><%= t('home.index.site_at_GSF') %></a></li>
+                    <li><a class="white-text" href="https://github.com/DiscussYourSchool/discussyourschool"><%= t('home.index.source_code') %></a></li>
                 </ul>
             </div>
         </div>
@@ -101,7 +87,7 @@
 
     <div class="footer-copyright">
         <div class="container">
-          Feito por <b>Leonardo</b> e <b>Thor</b> para a Google Science Fair
+          <%= t 'home.index.made_by' %> <b>Leonardo</b> <%= t 'home.index.and' %> <b>Thor</b> <%= t 'home.index.to_science_fair' %>
         </div>
     </div>
 </footer>

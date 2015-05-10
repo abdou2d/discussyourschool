@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
 		if @comment.save
 			redirect_to post_path(@post)
 		else
-			redirect_to @post, notice: "Erro ao divulgar a solução"
+			redirect_to @post, alert: t('flash.alert.error_create_comment')
 		end
 	end
 

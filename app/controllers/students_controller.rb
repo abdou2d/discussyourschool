@@ -7,9 +7,11 @@ class StudentsController < ApplicationController
     def show
         @student = Student.friendly.find(params[:id])
 
-        @posts_owner = @student.posts
-        @posts_visitor = @student.posts.where.not(anonymous: '1')
+        @posts_owner = @student.posts.order("created_at DESC")
+        @posts_without_anonymous = @student.posts.where.not(anonymous: '1')
 
+        @comments_with_more_likes = @student.comments.order(:cached_weighted_score => :desc)
+        @comments_with_more_likes_without_anonymous = @student.comments.where.not(anonymous: '1').order(:cached_weighted_score => :desc)
     end
 
     def new
@@ -21,7 +23,7 @@ class StudentsController < ApplicationController
 
         if @student.save
             SignupStudent.confirm_email(@student).deliver
-            redirect_to @student, notice: "Parabéns! Agora, é necessário confirmar o cadastro. Acesse seu email e confirme!"
+            redirect_to @student, notice: t('flash.notice.check_email_signup')
         else
             render action: :new
         end
@@ -35,7 +37,7 @@ class StudentsController < ApplicationController
         @student = Student.friendly.find(params[:id])
 
         if @student.update(student_params)
-            redirect_to @student, notice: 'Perfil editado com sucesso!'
+            redirect_to @student, notice: t('flash.notice.student_edited_succesfully')
         else
             render action: :edit
         end

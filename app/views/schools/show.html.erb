@@ -1,11 +1,13 @@
-<p id="notice">
-    <%= notice %>
-</p>
+<h2><%= t('schools.show.first_line') %> <%= @school.name %></h2>
 
-<h2>Escola: <%= @school.name %></h2>
-
+<<<<<<< HEAD
 <% if school_signed_in? && current_school == @school %>
     <p>
         <%= link_to 'Editar perfil da escola', edit_school_path(@school) %>
     </p>
 <% end %>
+=======
+<p>
+    <%= link_to t('schools.show.edit_school_link'), edit_school_path(@school) %>
+</p>
+>>>>>>> d2d9a54cbe1dca2f12c27a0d974e2f6fba2b329b

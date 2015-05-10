@@ -1,21 +1,21 @@
 <nav class="blue darken-2">
     <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Discuta. Solucione</a>
+        <a href="#" class="brand-logo"><%= t('layouts.navbar_off.discuss_solve') %></a>
 
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 
         <ul class="side-nav" id="mobile-demo">
             <li><%= link_to current_student.school_name, posts_path %></li>
-            <li><%= link_to "Novo post", new_post_path %></li>
-            <li><%= link_to "Minha conta", student_path(current_student) %></li>
-            <li><%= link_to "Logout", student_sessions_path, method: :delete %></li>
+            <li><%= link_to t('layouts.navbar_student.new_post'), new_post_path %></li>
+            <li><%= link_to t('layouts.navbar_school.my_account'), student_path(current_student) %></li>
+            <li><%= link_to t('layouts.navbar_school.logout'), student_sessions_path, method: :delete %></li>
         </ul>
 
         <ul class="right hide-on-med-and-down">
             <li><%= link_to current_student.school_name, posts_path %></li>
-            <li><%= link_to "Novo post", new_post_path %></li>
-            <li><%= link_to "Minha conta", student_path(current_student) %></li>
-            <li><%= link_to "Logout", student_sessions_path, method: :delete %></li>
+            <li><%= link_to t('layouts.navbar_student.new_post'), new_post_path %></li>
+            <li><%= link_to t('layouts.navbar_school.my_account'), student_path(current_student) %></li>
+            <li><%= link_to t('layouts.navbar_school.logout'), student_sessions_path, method: :delete %></li>
         </ul>
     </div>
 </nav>
