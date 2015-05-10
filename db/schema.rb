@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150510202044) do
+ActiveRecord::Schema.define(version: 20150510232533) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -116,6 +116,8 @@ ActiveRecord::Schema.define(version: 20150510202044) do
     t.string   "slug"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.integer  "posts_count",            default: 0
+    t.integer  "comments_count",         default: 0
   end
 
   add_index "students", ["email"], name: "index_students_on_email", unique: true

@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-    belongs_to :student
+    belongs_to :student, :counter_cache => true
     belongs_to :school
     belongs_to :post
 

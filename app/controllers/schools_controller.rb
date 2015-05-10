@@ -7,6 +7,9 @@ class SchoolsController < ApplicationController
         @school = School.friendly.find(params[:id])
 
         @students = Student.where(school_name: @school.name)
+
+        @students_problems = Student.where(school_name: @school.name).order("posts_count DESC").limit(5)
+        @students_comments = Student.where(school_name: @school.name).order("comments_count DESC").limit(5)
     end
 
     def new

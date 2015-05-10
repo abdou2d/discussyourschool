@@ -97,21 +97,11 @@
 
 </div>
 
-<% if @post.close_post != '1' %>
+<% if @post.close_post != '1' && student_signed_in? %>
 	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
 	    <a class="btn-floating btn-large blue waves-effect waves-light cyan darken-4 modal-trigger" href="#showFormComment">
-	      <label class="large mdi-editor-mode-edit"></i>
+	      <i class="large mdi-editor-mode-edit"></i>
 		</a>
-	</div>
-	<div id="showFormComment" class="modal">
-			<div class="modal-content">
-				<div style="text-align: center;">
-					<h4 style="text-align: center;"><%= t('posts.index.modal_title') %></h4>
-					<% if student_signed_in? || school_signed_in? %>
-						<%= render "comments/form" %>
-					<% end %>
-				</div>
-		    </div>
 	</div>
 <% end %>
 
@@ -121,4 +111,17 @@
 		<li class="divider"></li>
 		<li><%= link_to t('posts.show.delete_post'), post_path(@post), :method => :delete, data: { confirm: t('posts.show.confirm_delete') } %></li>
 	</ul>
+<% end %>
+
+<% if @post.close_post != '1' && student_signed_in? %>
+	<div id="showFormComment" class="modal">
+			<div class="modal-content">
+				<div style="text-align: center;">
+					<h4 style="text-align: center;"><%= t('posts.show.modal_title') %></h4>
+					<% if student_signed_in? || school_signed_in? %>
+						<%= render "comments/form" %>
+					<% end %>
+				</div>
+			</div>
+	</div>
 <% end %>

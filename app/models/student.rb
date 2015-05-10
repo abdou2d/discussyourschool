@@ -2,8 +2,8 @@ class Student < ActiveRecord::Base
 
     extend FriendlyId
 
-    has_many :posts, dependent: :destroy
-    has_many :comments, dependent: :destroy
+    has_many :posts, dependent: :destroy, :counter_cache => true
+    has_many :comments, dependent: :destroy, :counter_cache => true
 
     acts_as_voter
 

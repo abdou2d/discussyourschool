@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
 
 	has_many :comments, dependent: :destroy
 
-	belongs_to :student
+	belongs_to :student, :counter_cache => true
 
 	acts_as_votable
 

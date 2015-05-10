@@ -28,6 +28,56 @@
         </div>
     </div>
 
+    <% if @students.count > 0 %>
+        <div class="row">
+            <div class="col s6">
+                <table class="striped centered">
+                    <thead>
+                        <tr>
+                            <th>Alunos que mais divulgam problemas</th>
+                            <th>Posição:</th>
+                            <th>Quantidade de problemas divulgados:</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <% i = 0 %>
+                        <% @students_problems.each do |student| %>
+                            <tr>
+                                <td><%= student.name %></td>
+                                <td>#<%= i = i + 1 %></td>
+                                <td><%= student.posts_count %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col s6">
+                <table class="striped centered">
+                    <thead>
+                        <tr>
+                            <th>Alunos que mais sugerem soluções</th>
+                            <th>Posição:</th>
+                            <th>Quantidade de soluções sugeridas</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <% i = 0 %>
+                        <% @students_comments.each do |student| %>
+                            <tr>
+                                <td><%= student.name %></td>
+                                <td>#<%= i = i + 1 %></td>
+                                <td><%= student.comments_count %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <% end %>
+
 </div>
 
 
