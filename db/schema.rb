@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150508025522) do
+ActiveRecord::Schema.define(version: 20150510035433) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -94,6 +94,8 @@ ActiveRecord::Schema.define(version: 20150508025522) do
     t.datetime "confirmed_at"
     t.string   "confirmation_token"
     t.string   "slug"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "schools", ["email"], name: "index_schools_on_email", unique: true
@@ -113,6 +115,8 @@ ActiveRecord::Schema.define(version: 20150508025522) do
     t.datetime "confirmed_at"
     t.string   "confirmation_token"
     t.string   "slug"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "students", ["email"], name: "index_students_on_email", unique: true

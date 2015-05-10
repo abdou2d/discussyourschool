@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'password_resets/new'
+
   resources :schools
+  resources :password_reset_students
+  resources :password_reset_schools
 
   resources :students do
       get :autocomplete_school_name, :on => :collection
