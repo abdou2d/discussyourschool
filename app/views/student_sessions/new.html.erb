@@ -1,5 +1,6 @@
 <div class="login-aluno container">
     <h2>Login do aluno</h2>
+    <span>Esqueceu sua senha? <%= link_to "Clique aqui!", new_password_reset_student_path %></span>
 
     <% if @student_session.errors.has_key? :base %>
         <div class="error">

@@ -1,8 +1,19 @@
-<%= form_tag password_reset_schools_path, :method => :post do %>
-    <div>
-        <%= label_tag :email %>
-        <%= text_field_tag :email, params[:email] %>
+<div class="notify-school container">
+    <div class="row">
+        <div class="input-field col s12">
+            <%= form_tag password_reset_schools_path, :method => :post do %>
+                <div>
+                    <%= label_tag :email %>
+                    <%= text_field_tag :email, params[:email], placeholder: "Reset your password!" %>
+                </div>
+
+                <div><%= submit_tag "Reset Password", class: "btn btn-large blue darken-1" %></div>
+            <% end %>
+        </div>
     </div>
 
-    <div><%= submit_tag "Reset Password" %></div>
-<% end %>
+    <p class="notice">
+	    <%= notice %>
+	</p>
+
+</div>
