@@ -4,6 +4,8 @@
 
 <h2>Escola: <%= @school.name %></h2>
 
-<p>
-    <%= link_to 'Editar perfil da escola', edit_school_path(@school) %>
-</p>
+<% if school_signed_in? && current_school == @school %>
+    <p>
+        <%= link_to 'Editar perfil da escola', edit_school_path(@school) %>
+    </p>
+<% end %>

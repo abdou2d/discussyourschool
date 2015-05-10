@@ -17,7 +17,6 @@ class Student < ActiveRecord::Base
 
     validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
     validates :birthday, presence: true, format: { with: VALID_BIRTHDAY_REGEX }
-    validates :grade, presence: true, :allow_blank => true
     validates :password, presence: { on: :create }, length: { minimum: 6, allow_blank: true }
 
     validate :valid_date?
