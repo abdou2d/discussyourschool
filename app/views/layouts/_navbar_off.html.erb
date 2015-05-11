@@ -26,8 +26,6 @@
     <div class="nav-wrapper">
         <%= link_to t('layouts.navbar_off.discuss_solve'), root_url, class: "brand-logo" %>
 
-        <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-
         <ul id="slide-out" class="side-nav">
             <li><a class="dropdown-button" href="#!" data-activates="login2"><%= t('layouts.navbar_off.login') %><i class="mdi-navigation-arrow-drop-down right"></i></a></li>
             <li><a class="dropdown-button" href="#!" data-activates="signup2"><%= t('layouts.navbar_off.signup') %><i class="mdi-navigation-arrow-drop-down right"></i></a></li>
@@ -37,5 +35,7 @@
             <li><a class="dropdown-button" href="#!" data-activates="login"><%= t('layouts.navbar_off.login') %><i class="mdi-navigation-arrow-drop-down right"></i></a></li>
             <li><a class="dropdown-button" href="#!" data-activates="signup"><%= t('layouts.navbar_off.signup') %><i class="mdi-navigation-arrow-drop-down right"></i></a></li>
         </ul>
+
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
     </div>
 </nav>
