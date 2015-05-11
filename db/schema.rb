@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150510232533) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.text     "content"
     t.datetime "created_at"
@@ -30,16 +33,16 @@ ActiveRecord::Schema.define(version: 20150510232533) do
     t.float    "cached_weighted_average", default: 0.0
   end
 
-  add_index "comments", ["cached_votes_down"], name: "index_comments_on_cached_votes_down"
-  add_index "comments", ["cached_votes_score"], name: "index_comments_on_cached_votes_score"
-  add_index "comments", ["cached_votes_total"], name: "index_comments_on_cached_votes_total"
-  add_index "comments", ["cached_votes_up"], name: "index_comments_on_cached_votes_up"
-  add_index "comments", ["cached_weighted_average"], name: "index_comments_on_cached_weighted_average"
-  add_index "comments", ["cached_weighted_score"], name: "index_comments_on_cached_weighted_score"
-  add_index "comments", ["cached_weighted_total"], name: "index_comments_on_cached_weighted_total"
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
-  add_index "comments", ["school_id"], name: "index_comments_on_school_id"
-  add_index "comments", ["student_id"], name: "index_comments_on_student_id"
+  add_index "comments", ["cached_votes_down"], name: "index_comments_on_cached_votes_down", using: :btree
+  add_index "comments", ["cached_votes_score"], name: "index_comments_on_cached_votes_score", using: :btree
+  add_index "comments", ["cached_votes_total"], name: "index_comments_on_cached_votes_total", using: :btree
+  add_index "comments", ["cached_votes_up"], name: "index_comments_on_cached_votes_up", using: :btree
+  add_index "comments", ["cached_weighted_average"], name: "index_comments_on_cached_weighted_average", using: :btree
+  add_index "comments", ["cached_weighted_score"], name: "index_comments_on_cached_weighted_score", using: :btree
+  add_index "comments", ["cached_weighted_total"], name: "index_comments_on_cached_weighted_total", using: :btree
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+  add_index "comments", ["school_id"], name: "index_comments_on_school_id", using: :btree
+  add_index "comments", ["student_id"], name: "index_comments_on_student_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -49,10 +52,10 @@ ActiveRecord::Schema.define(version: 20150510232533) do
     t.datetime "created_at"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -74,14 +77,14 @@ ActiveRecord::Schema.define(version: 20150510232533) do
     t.string   "slug"
   end
 
-  add_index "posts", ["cached_votes_down"], name: "index_posts_on_cached_votes_down"
-  add_index "posts", ["cached_votes_score"], name: "index_posts_on_cached_votes_score"
-  add_index "posts", ["cached_votes_total"], name: "index_posts_on_cached_votes_total"
-  add_index "posts", ["cached_votes_up"], name: "index_posts_on_cached_votes_up"
-  add_index "posts", ["cached_weighted_average"], name: "index_posts_on_cached_weighted_average"
-  add_index "posts", ["cached_weighted_score"], name: "index_posts_on_cached_weighted_score"
-  add_index "posts", ["cached_weighted_total"], name: "index_posts_on_cached_weighted_total"
-  add_index "posts", ["student_id"], name: "index_posts_on_student_id"
+  add_index "posts", ["cached_votes_down"], name: "index_posts_on_cached_votes_down", using: :btree
+  add_index "posts", ["cached_votes_score"], name: "index_posts_on_cached_votes_score", using: :btree
+  add_index "posts", ["cached_votes_total"], name: "index_posts_on_cached_votes_total", using: :btree
+  add_index "posts", ["cached_votes_up"], name: "index_posts_on_cached_votes_up", using: :btree
+  add_index "posts", ["cached_weighted_average"], name: "index_posts_on_cached_weighted_average", using: :btree
+  add_index "posts", ["cached_weighted_score"], name: "index_posts_on_cached_weighted_score", using: :btree
+  add_index "posts", ["cached_weighted_total"], name: "index_posts_on_cached_weighted_total", using: :btree
+  add_index "posts", ["student_id"], name: "index_posts_on_student_id", using: :btree
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"
@@ -98,9 +101,9 @@ ActiveRecord::Schema.define(version: 20150510232533) do
     t.datetime "password_reset_sent_at"
   end
 
-  add_index "schools", ["email"], name: "index_schools_on_email", unique: true
-  add_index "schools", ["name"], name: "index_schools_on_name", unique: true
-  add_index "schools", ["slug"], name: "index_schools_on_slug", unique: true
+  add_index "schools", ["email"], name: "index_schools_on_email", unique: true, using: :btree
+  add_index "schools", ["name"], name: "index_schools_on_name", unique: true, using: :btree
+  add_index "schools", ["slug"], name: "index_schools_on_slug", unique: true, using: :btree
 
   create_table "students", force: :cascade do |t|
     t.string   "school_name"
@@ -116,12 +119,14 @@ ActiveRecord::Schema.define(version: 20150510232533) do
     t.string   "slug"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.integer  "school_id"
     t.integer  "posts_count",            default: 0
     t.integer  "comments_count",         default: 0
   end
 
-  add_index "students", ["email"], name: "index_students_on_email", unique: true
-  add_index "students", ["name"], name: "index_students_on_name", unique: true
+  add_index "students", ["email"], name: "index_students_on_email", unique: true, using: :btree
+  add_index "students", ["name"], name: "index_students_on_name", unique: true, using: :btree
+  add_index "students", ["school_id"], name: "index_students_on_school_id", using: :btree
 
   create_table "votes", force: :cascade do |t|
     t.integer  "votable_id"
@@ -135,7 +140,12 @@ ActiveRecord::Schema.define(version: 20150510232533) do
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "schools"
+  add_foreign_key "comments", "students"
+  add_foreign_key "posts", "students"
+  add_foreign_key "students", "schools"
 end
