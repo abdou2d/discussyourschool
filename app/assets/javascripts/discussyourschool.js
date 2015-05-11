@@ -10,4 +10,6 @@ $( document ).ready(function(){
 
     $('.modal-trigger').leanModal();
 
+    $('.collapsible').collapsible();
+
 });
