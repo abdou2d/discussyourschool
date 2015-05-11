@@ -1,4 +1,13 @@
 <div class="container">
+
+    <% if school_signed_in? && current_school == @school %>
+        <div class="col s1 right">
+            <span>
+                <%= link_to t('schools.show.edit_school_link'), edit_school_path(@school), class: "waves-effect waves-light btn orange" %>
+            </span>
+        </div>
+    <% end %>
+
     <h2 class="light" style="font-size: 3em; text-align: center"><%= @school.name %></h2>
 
     <ul class="collection with-header">
@@ -79,10 +88,3 @@
     <% end %>
 
 </div>
-
-
-<% if school_signed_in? && current_school == @school %>
-    <p>
-        <%= link_to t('schools.show.edit_school_link'), edit_school_path(@school) %>
-    </p>
-<% end %>

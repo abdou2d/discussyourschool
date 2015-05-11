@@ -97,7 +97,7 @@
 
 </div>
 
-<% if @post.close_post != '1' && student_signed_in? %>
+<% if @post.close_post != '1' && (student_signed_in? || school_signed_in?)  %>
 	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
 	    <a class="btn-floating btn-large blue waves-effect waves-light cyan darken-4 modal-trigger" href="#showFormComment">
 	      <i class="large mdi-editor-mode-edit"></i>

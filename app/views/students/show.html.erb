@@ -43,11 +43,11 @@
                     <li class="collection-header"><h4><%= t('students.show.best_solutions') %></h4></li>
                     <% if student_signed_in? && current_student.id = @student.id %>
                         <% @comments_with_more_likes.each do |comment| %>
-                            <li><%= truncate(comment.content, length: 15) %></li>
+                            <%= link_to truncate(comment.content, length: 10), post_path(comment.post), class: "collection-item" %>
                         <% end %>
                     <% else %>
                         <% @comments_with_more_likes_without_anonymous.each do |comment| %>
-                            <li><%= truncate(comment.content, length: 15) %></li>
+                        <%= link_to truncate(comment.content, length: 10), post_path(comment.post), class: "collection-item" %>
                         <% end %>
                     <% end %>
                 </ul>

@@ -1,7 +1,46 @@
 <div class="editar-cadastro-escolar container">
-    <h2><%= t('schools.edit.first_line') %>/h2>
+    <h2><%= t('schools.edit.first_line') %></h2>
 
     <div class="formulario">
-        <%= render 'form' %>
+        <%= form_for @school do |f| %>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <%= f.label :email %>
+                    <%= f.text_field :email, class: "validate" %>
+                    <%= error_field @school, :email %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <%= f.label :phone %>
+                    <%= f.text_field :phone, class: "validate phone", placeholder: "(99) 9999-9999" %>
+                    <%= error_field @school, :phone %>
+                </div>
+                <div class="input-field col s6">
+                    <%= f.label :mec_code %>
+                    <%= f.number_field :mec_code, class: "validate" %>
+                    <%= error_field @school, :mec_code %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <%= f.label :password %>
+                    <%= f.password_field :password, class: "validate" %>
+                    <%= error_field @school, :password %>
+                </div>
+                <div class="input-field col s6">
+                    <%= f.label :password_confirmation %>
+                    <%= f.password_field :password_confirmation, class: "validate" %>
+                    <%= error_field @school, :password_confirmation %>
+                </div>
+            </div>
+
+            <div class="row">
+                <%= f.submit class: "btn btn-large blue darken-1" %>
+            </div>
+        <% end %>
     </div>
 </div>
