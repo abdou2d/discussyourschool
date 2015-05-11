@@ -1,6 +1,10 @@
 $( document ).ready(function(){
 
-    $(".button-collapse").sideNav();
+    $('.button-collapse').sideNav({
+        menuWidth: 240, // Default is 240
+        edge: 'right', // Choose the horizontal origin
+    });
+
     $(".dropdown-button").dropdown();
 
     $(".phone").mask("(99) 9999-9999");
@@ -9,7 +13,5 @@ $( document ).ready(function(){
     $('select').material_select();
 
     $('.modal-trigger').leanModal();
-
-    $('.collapsible').collapsible();
 
 });
