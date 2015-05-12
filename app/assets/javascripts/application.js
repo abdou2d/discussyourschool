@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require materialize-sprockets
 //= require jquery_ujs
 //= require jquery-ui
+//= require materialize-sprockets
 //= require autocomplete-rails
 //= require turbolinks
 //= require_tree .

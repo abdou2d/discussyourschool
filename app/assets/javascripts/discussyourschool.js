@@ -2,7 +2,7 @@ $( document ).ready(function(){
 
     $('.button-collapse').sideNav({
         menuWidth: 240, // Default is 240
-        edge: 'left', // Choose the horizontal origin
+        edge: 'right', // Choose the horizontal origin
     });
 
     $(".dropdown-button").dropdown();
