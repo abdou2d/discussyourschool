@@ -48,11 +48,9 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
-    scope :no_anemona, -> { where.not anonymous: '1' }
-
     def posts_count_no_anonymous(student_id, school_name)
         student = Student.where(id: student_id).where(school_name: @school.name)
-        posts = student.posts.no_anemona
+        posts = student.posts.where.not(anonymous: '1')
     end
 
 end
