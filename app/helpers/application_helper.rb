@@ -26,4 +26,9 @@ module ApplicationHelper
         @student_school_name.slug
     end
 
+    def posts_count_no_anonymous(student_id, school_name)
+        student = Student.find_by(id: student_id).where(school_name: school.name)
+        @posts_no_anonymous = student.posts.where.not(anonymous: '1')
+    end
+
 end
