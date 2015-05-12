@@ -87,7 +87,8 @@ class School < ActiveRecord::Base
     scope :no_anemona, -> { where.not (anonymous: '1') }
 
     def posts_count_no_anonymous(student_id, school_name)
-        Student.where(student_id: student_id).where(school_name: @school.name).no_anemona
+        student = Student.where(id: student_id).where(school_name: @school.name)
+        posts = student.posts.no_anemona
     end
 
 end
