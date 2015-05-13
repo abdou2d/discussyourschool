@@ -164,7 +164,8 @@ en:
       third_line_part_two: "expects to be util in your school improvement!"
 
   comments:
-    form: "let the solution as anonymous"
+    form:
+      label_anonymous: "Let the solution as anonymous"
     delete_link: "Delete"
     confirm_delete: "Are you sure liked this solution"
     voted_by_school_best_solution: "Voted as the best solution by the school!"

@@ -12,5 +12,4 @@ class Post < ActiveRecord::Base
 	validates_presence_of :anonymous, :allow_blank => true
 
 	friendly_id :title, use: [:slugged, :history]
-
 end

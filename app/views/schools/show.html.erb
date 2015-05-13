@@ -52,10 +52,16 @@
                     <tbody>
                         <% i = 0 %>
                         <% @students_problems.each do |student| %>
+                            <% without_anonymous_posts = 0 %>
+                            <% student.posts.each do |post| %>
+                                <% if post.anonymous == '0' %>
+                                    <% without_anonymous_posts = without_anonymous_posts + 1 %>
+                                <% end %>
+                            <% end %>
                             <tr>
                                 <td><%= student.name %></td>
                                 <td>#<%= i = i + 1 %></td>
-                                <td><%= student.posts_count %></td>
+                                <td><%= without_anonymous_posts%></td>
                             </tr>
                         <% end %>
                     </tbody>
@@ -75,10 +81,16 @@
                     <tbody>
                         <% i = 0 %>
                         <% @students_comments.each do |student| %>
+                            <% without_anonymous_comments = 0 %>
+                            <% student.comments.each do |comment| %>
+                                <% if comment.anonymous == '0' %>
+                                    <% without_anonymous_comments = without_anonymous_comments + 1 %>
+                                <% end %>
+                            <% end %>
                             <tr>
                                 <td><%= student.name %></td>
                                 <td>#<%= i = i + 1 %></td>
-                                <td><%= student.comments_count %></td>
+                                <td><%= without_anonymous_comments %></td>
                             </tr>
                         <% end %>
                     </tbody>

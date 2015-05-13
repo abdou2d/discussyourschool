@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 	autocomplete :school, :name, :full => true
 
 	before_action :require_authentication_student, only: [:new, :create, :edit, :update, :destroy]
-	before_action :set_student_post, only: [:edit, :update]
+	before_action :set_student_post, only: [:edit, :update, :destroy]
 
 	def index
 		if student_signed_in?
