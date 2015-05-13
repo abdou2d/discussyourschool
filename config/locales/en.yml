@@ -1,23 +1,249 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      student: Student
+      school: School
+      post: Post
+      comment: Comment
+    attributes:
+      student:
+        name: Name
+        email: Email
+        birthday: Birthday
+        school_name: School name
+        password: Password
+        password_confirmation: Repeat your password
+        grade: Grade
+      school:
+        name: Name
+        email: Email
+        mec_code: MEC code
+        phone: Phone number
+        password: Password
+        password_confirmation: Repeat your password
+      post:
+        title: Title
+        content: Content
+        anonymous: Anonymous
+      comment:
+        content: Content
+
+  posts:
+    form:
+      anonymous_label: "If you want, post it anonymously"
+    edit:
+      first_line: "Edit the problem"
+    new:
+      first_line: "Describe a problem that your school has"
+    index:
+      no_posts: "No problem discussions or solutions until now"
+      first_line: "Problems. Solve them!"
+      by: "By:"
+      anonymous: "Anonymous"
+      zero_likes: "No one liked it yet"
+      one_like: "One persons likes it"
+      liked: "liked"
+      zero_solutions: "No solutions"
+      one_solution: "One solution"
+      solutions: "solutions"
+      time_ago: "ago"
+    show:
+      zero_likes: "No one support yet"
+      one_like: "One person support it"
+      support: "support"
+      solution_founded: "Solution founded!"
+      reopen_problem: "Reopen the problem"
+      anonymous: "By anonymous"
+      author: "By %{author}"
+      zero_solutions: "No solution :("
+      one_solution: "One solution"
+      solutions: "solutions"
+      modal_title: "Show your solution!"
+      edit_post: "Edit post"
+      delete_post: "Delete post"
+      confirm_delete: "Are you sure you want to delete this post?"
+
+  schools:
+    edit:
+      first_line: "Edit your profile"
+    new:
+      first_line: "School signup"
+    show:
+      data: "School data"
+      students_count: "Number of students:"
+      approve: "Approve the school: "
+      want_more_compromise: "Want more school commitment in the resolution of the problems:"
+      think_about_school: "What do you think about your school?"
+      changed_opinion_one: "Changed my opinion! :("
+      changed_opinion_two: "Changed my opinion! :D"
+      good: "Great! Solve the problems!"
+      bad: "doesn't solve much problems :/"
+      edit_school_link: "Edit school profile"
+
+  students:
+    edit:
+      first_line: "Edit your profile"
+    new:
+      first_line: "Signup as a student!"
+      second_line: "Didn't find your school?"
+      click_here: "Click here!"
+    show:
+      from: "from"
+      edit_profile: "Edit your profile"
+      no_problems_shared: "No problems shared"
+      problems_shared: "Shared problems"
+      best_solutions: "Best solutions"
+
+
+  school_session:
+    first_line: "School login"
+    second_line_first_part: "Forgot your password?"
+    click_here: "Click here!"
+  student_session:
+    first_line: "Student login"
+    second_line_first_part: "Forgot your password?"
+    click_here: "Click here!"
+
+  flash:
+    alert:
+      student_must_be_logged: "Has to be logged as a student!"
+      school_must_be_logged: "Has to be logged as a school!"
+      already_logged_student: "Already logged as a student!"
+      already_logged_school: "Already logged as a school!"
+      error_create_comment: "Error creating comment"
+      school_already_registered: "School already registered"
+      reset_password_expired: "Reset attempt was expired since the delayt time!"
+      access_denied: "Denied access!"
+    notice:
+      signup_confirmed_school: "Signup was succesfully confirmed! Now log in and encourage your students to participate"
+      signup_confirmed_student: "Signup was succesfully confirmed! Let's change your school? Just have to log in now!"
+      email_notification_school_sent: "The email was succesfully sent to your school!"
+      reset_password_email_sent: "Reset instructions were sent to your email!"
+      password_was_reseted: "Password was reseted!"
+      post_created_succesfully: "Post was succesfully created!"
+      post_edited_succesfully: "Post was succesfully updated!"
+      login_was_made: "Login succesfully made!"
+      logout_was_made: "Logout succesfully made!"
+      check_email_signup: "Congratulations! Now it's necessary to confirm your signup. Access your email and confirm!"
+      school_edited_succesfully: "School profile was succesfully updated!"
+      student_edited_succesfully: "Student profile was succesfully updated!"
+
+  email:
+    notify_school:
+      subject: "Signup at Discuss Your School!"
+      first_line: "Hey, how are you?"
+      second_line: "One student from your school is interested in participating in Discuss Your School, an online plataform where is possible to receive sugestions to the resolution of school problems"
+      third_line: "Let's go! Signup!"
+      click_here: click here"
+      confirm_link_html: "To do that, %{link}!"
+    reset_password_school:
+      subject: "Redefina sua senha!"
+      first_line: "Seguem as instruções para resetar sua senha"
+      click_here: "clique aqui"
+      confirm_link_html: "Para resetar sua senha, %{link}"
+      third_line: "Se você não solicitou resetar sua senha, somente ignore esse email."
+    reset_password_student:
+      subject: "Reset your password"
+      first_line: "Follow the instructions to reset your password"
+      click_here: "click here"
+      confirm_link_html: "To reset your password, %{link}"
+      third_line: "If you don't want that, ignore this email."
+    confirm_signup_school:
+      subject: "Confirm the school signup"
+      first_line: "Hello"
+      click_here: "click here"
+      confirm_link_html: "To confirm your signup, %{link}"
+      third_line_part_one: "Thanks!"
+      third_line_part_two: "expects to be util in your school improvement!"
+    confirm_signup_student:
+      subject: "Confirm your signup student!"
+      first_line: Hello"
+      click_here: "click here"
+      confirm_link_html: "To confirm your signup, %{link}"
+      third_line_part_one: "Thanks!"
+      third_line_part_two: "expects to be util in your school improvement!"
+
+  comments:
+    form: "let the solution as anonymous"
+    delete_link: "Delete"
+    confirm_delete: "Are you sure liked this solution"
+    voted_by_school_best_solution: "Voted as the best solution by the school!"
+    anonymous: "Anonymous"
+    time_ago: "ago"
+
+  home:
+    index:
+      school_better_place: "Make of your school a better place"
+      solve_school_problems: "Solve your school problems"
+      signup: "Signup"
+      login: "Login"
+      improve_school_environment: "Improve the school environment"
+      first_big_text: "Nothing better than know the school problems through the students. As a school, choose the best solutions, commit yourself to put this in practice and reward the students that actively participate. As a student, show to your school the problems that bother you."
+      solve_in_group: "Solve in group"
+      second_big_text: "No one find a problem solution alone. Talks about the problem and discuss him with your school and friends. Liked a solution? Vote on it!"
+      improve_relation_with_school: "Improve your relationship with the school"
+      third_big_text: "You don't need anymore to be ashamed to talks about a problem with yur school. Talks about the problem anonymously and get periodically out of anonymity"
+      about_who_made: "About who did"
+      fourth_big_text: "We are two students participating in the Google Science Fair and we want to improve the brazilian education through projects that estimulate students to change their visions"
+      the_project: "The project"
+      site_at_GSF: "Site at GSF"
+      source_code: "Source code"
+      made_by: "Made by"
+      and: "and"
+      to_science_fair: "to Google Science Fair"
+
+  notify_schools:
+    new:
+      placeholder: "Notify your school about this project!"
+
+  password_reset_schools:
+    new:
+      placeholder: "Put here the email to send reset instructions"
+    edit:
+      form_invalid: "The form is invalid!"
+      placeholder_password: "Type your password"
+      placeholder_password_confirmation: "Type it again"
+
+  password_reset_students:
+    new:
+      placeholder: "Put here the email to send reset instructions"
+    edit:
+      form_invalid: "The form is invalid!"
+      placeholder_password: "Type your password"
+      placeholder_password_confirmation: "Type it again"
+
+  layouts:
+    navbar_off:
+      like_school: "As school"
+      like_student: "As student"
+      discuss_solve: "Discuss. Solve"
+      login: "Login"
+      signup: "Signup"
+    navbar_school:
+      posts_at_school: "See reported problems"
+      my_account: "My account"
+      logout: "Logout"
+    navbar_student:
+      new_post: "Post a problem"
+      avaluate_school: "Avaluate your school!"
+
+  helpers:
+    submit:
+      notify_schools: "Send email to the school"
+      password_reset_schools_new: "Send email with reset instructions"
+      password_reset_schools_edit: "Reset password"
+      password_reset_students_new: "Send email with reset instructions"
+      password_reset_students_edit: "Reset password"
+      session: "Enter"
+
+  activemodel:
+    attributes:
+      school_session:
+        email: "Email"
+        password: "Password"
+      student_session:
+        email: "Email"
+        password: "Password"
+    errors:
+      messages:
+        invalid_login: "Email or password are invalid!"

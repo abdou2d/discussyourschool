@@ -227,6 +227,7 @@ pt:
       logout: Sair
     navbar_student:
       new_post: "Divulgar problema"
+      avaluate_school: "Avalie sua escola!"
 
   helpers:
     submit:
