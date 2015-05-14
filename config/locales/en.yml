@@ -36,7 +36,7 @@ en:
     new:
       first_line: "Describe a problem that your school has"
     index:
-      no_posts: "No problem discussions or solutions until now"
+      no_posts: "No problems or solutions until now"
       first_line: "Problems. Solve them!"
       by: "By:"
       anonymous: "Anonymous"
