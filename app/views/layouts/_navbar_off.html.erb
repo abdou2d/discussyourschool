@@ -30,16 +30,16 @@
             <li>
                 Login
                 <ul>
-                    <li><a href="#">Como aluno</a></li>
-                    <li><a href="#">Como escola</a></li>
+                    <li><%= link_to t('layouts.navbar_off.like_student'), new_student_sessions_path %></li>
+                    <li><%= link_to t('layouts.navbar_off.like_school'), new_school_sessions_path %></li>
                 </ul>
             </li>
 
             <li>
-                Cadastrar-se
+                Cadastre-se
                 <ul>
-                    <li><a href="#">Como aluno</a></li>
-                    <li><a href="#">Como escola</a></li>
+                    <li><%= link_to t('layouts.navbar_off.like_school'), new_student_path %><li>
+                    <li><%= link_to t('layouts.navbar_off.like_school'), new_school_path %></li>
                 </ul>
             </li>
         </ul>
